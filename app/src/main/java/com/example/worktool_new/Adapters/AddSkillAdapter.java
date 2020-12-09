@@ -20,31 +20,41 @@ import com.example.worktool_new.R;
 import java.util.ArrayList;
 
 public class AddSkillAdapter extends RecyclerView.Adapter<AddSkillAdapter.Viewholder> {
-        /* access modifiers changed from: private */
-        public int adapterpoistion;
-        /* access modifiers changed from: private */
-        public ArrayList<JsonModel> competence_data = new ArrayList<>();
-        private Context context;
-        private CustomSkillAdapter customSkillAdapter;
-        /* access modifiers changed from: private */
-        public ArrayList<CustomSkillModel> datamodelArraylist;
-        /* access modifiers changed from: private */
-        ArrayList<AddSkillModel> skillList;
+    /* access modifiers changed from: private */
+    public int adapterpoistion;
+    /* access modifiers changed from: private */
+    public ArrayList<JsonModel> competence_data = new ArrayList<>();
+    private Context context;
+    private CustomSkillAdapter customSkillAdapter;
+    /* access modifiers changed from: private */
+    public ArrayList<CustomSkillModel> datamodelArraylist;
+    /* access modifiers changed from: private */
+    ArrayList<AddSkillModel> skillList;
+    private ArrayList<AddSkillModel> sendSkillList = new ArrayList<>();
+    sendSkillData sendSkillData;
 
-        public AddSkillAdapter(Context context2, ArrayList<AddSkillModel> arrayList) {
-            this.skillList = arrayList;
-            this.context = context2;
-        }
+    public interface sendSkillData{
+        void sendSkill(ArrayList<AddSkillModel> sendSkillList);
+    }
 
-        public Viewholder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new Viewholder(LayoutInflater.from(this.context).inflate(R.layout.edit_skill_recycler_item, parent, false));
-        }
+    public AddSkillAdapter(Context context2, ArrayList<AddSkillModel> arrayList, sendSkillData sendSkillData) {
+        this.skillList = arrayList;
+        this.context = context2;
+        this.sendSkillData = sendSkillData;
+    }
 
-        public void onBindViewHolder(final Viewholder holder, final int position) {
-            holder.tvSkill.setText(skillList.get(position).getSkillName());
-            holder.rvRatingBar.setRating(skillList.get(position).getSkillRating());
-            Log.i("rating", "" + skillList.get(position).getSkillName());
-            Log.i("rating","" + skillList.get(position).getSkillRating().toString());
+    public Viewholder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new Viewholder(LayoutInflater.from(this.context).inflate(R.layout.edit_skill_recycler_item, parent, false));
+    }
+
+    public void onBindViewHolder(final Viewholder holder, final int position) {
+        holder.tvSkill.setText(skillList.get(position).getSkillName());
+        holder.rvRatingBar.setRating(skillList.get(position).getSkillRating());
+
+        AddSkillModel skillModel = new AddSkillModel(skillList.get(position).getSkillName(), skillList.get(position).getSkillRating());
+        sendSkillList.add(skillModel);
+        sendSkillData.sendSkill(sendSkillList);
+
         /*PrintStream printStream = System.out;
         printStream.println("snjkankjaska 0" + new Gson().toJson((Object) this.datamodelArraylist));
         this.adapterpoistion = position;
@@ -89,11 +99,11 @@ public class AddSkillAdapter extends RecyclerView.Adapter<AddSkillAdapter.Viewho
                 }
             });
         }*/
-            holder.ivDelete.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                }
-            });
-        }
+        holder.ivDelete.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            }
+        });
+    }
 
 /*
     public void updateList() {
@@ -115,23 +125,23 @@ public class AddSkillAdapter extends RecyclerView.Adapter<AddSkillAdapter.Viewho
     }
 */
 
-        public int getItemCount() {
-            return this.skillList.size();
+    public int getItemCount() {
+        return this.skillList.size();
+    }
+
+    public class Viewholder extends RecyclerView.ViewHolder {
+
+        public LinearLayout ivDelete;
+        public RatingBar rvRatingBar;
+        private TextView tvSkill;
+
+        public Viewholder(View itemView) {
+            super(itemView);
+            this.ivDelete = (LinearLayout) itemView.findViewById(R.id.llDelete);
+            this.tvSkill = (TextView) itemView.findViewById(R.id.tv_skill);
+            this.rvRatingBar = (RatingBar) itemView.findViewById(R.id.ratingBar);
         }
 
-        public class Viewholder extends RecyclerView.ViewHolder {
-
-            public LinearLayout ivDelete;
-            public RatingBar rvRatingBar;
-            private TextView tvSkill;
-
-            public Viewholder(View itemView) {
-                super(itemView);
-                this.ivDelete = (LinearLayout) itemView.findViewById(R.id.llDelete);
-                this.tvSkill = (TextView) itemView.findViewById(R.id.tv_skill);
-                this.rvRatingBar = (RatingBar) itemView.findViewById(R.id.ratingBar);
-            }
-
-        }
+    }
 
 }

@@ -44,13 +44,13 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ImportCv extends AppCompatActivity {
+public class ImportCv extends AppCompatActivity implements AddSkillAdapter.sendSkillData {
     private TextView addskill;
     /* access modifiers changed from: private */
     public File attachmentFile = null;
     /* access modifiers changed from: private */
     public String attachment_file_path = "";
-    private Button btnUploadFile;
+    private Button btnUploadFile, saveButton;
     private ArrayList<CustomSkillModel> datamodelArrayList;
     /* access modifiers changed from: private */
     public ImportCvAdapter importCvAdapter;
@@ -61,8 +61,9 @@ public class ImportCv extends AppCompatActivity {
     /* access modifiers changed from: private */
     public ArrayList<SkillBodyItem> skillModelArrayList;
     private EditText inputTitle, inputSummary,inputLocation, inputSkill;
-    public ArrayList<AddSkillModel> skillList;
+    public ArrayList<AddSkillModel> skillList = new ArrayList<>();
     public AddSkillAdapter cvAdapter;
+    public ArrayList<AddSkillModel> getSkillList = new ArrayList<>();
 
     /* access modifiers changed from: protected */
     public void onCreate(Bundle savedInstanceState) {
@@ -77,6 +78,7 @@ public class ImportCv extends AppCompatActivity {
         inputLocation = findViewById(R.id.cvLocation);
         inputSkill = findViewById(R.id.skillEditText);
         ratingBar = findViewById(R.id.ratingBar);
+        saveButton = findViewById(R.id.saveCvButton);
         this.addskill = findViewById(R.id.ll_addskill);
         this.btnUploadFile = (Button) findViewById(R.id.btnUploadFile);
         this.ivBack = (ImageView) findViewById(R.id.ivBack);
@@ -126,13 +128,38 @@ public class ImportCv extends AppCompatActivity {
                 ratingBar.setRating(0);
             }
         });
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveCv();
+            }
+        });
+    }
+
+    private void saveCv() {
+        if (inputTitle.getText().toString().equals(""))
+            Toast.makeText(this, "Please enter the title", Toast.LENGTH_SHORT).show();
+        else if (inputLocation.getText().toString().equals(""))
+            Toast.makeText(this, "Please enter the location", Toast.LENGTH_SHORT).show();
+        else if (inputSummary.getText().toString().equals(""))
+            Toast.makeText(this, "Please enter the summary", Toast.LENGTH_SHORT).show();
+        else {
+            String title = inputTitle.getText().toString();
+            String summary = inputSummary.getText().toString();
+            String location = inputLocation.getText().toString();
+            for (int i = 1; i < getSkillList.size(); i++){
+                String skill = getSkillList.get(i).getSkillName();
+                String rating = getSkillList.get(i).getSkillRating().toString();
+                //  add to server
+            }
+        }
     }
 
     private void addToView(String skill, Float rating) {
         AddSkillModel model = new AddSkillModel(skill, rating);
-        skillList = new ArrayList<>();
         skillList.add(model);
-        cvAdapter = new AddSkillAdapter(ImportCv.this, skillList);
+        cvAdapter = new AddSkillAdapter(ImportCv.this, skillList, ImportCv.this);
         Log.i("ratibgList", "" + skillList.toString());
         rvImportcv.setLayoutManager(new LinearLayoutManager(ImportCv.this,1, false));
         rvImportcv.setAdapter(cvAdapter);
@@ -224,4 +251,11 @@ public class ImportCv extends AppCompatActivity {
         super.onBackPressed();
         finish();
     }
+
+    @Override
+    public void sendSkill(ArrayList<AddSkillModel> sendSkillList) {
+        this.getSkillList = sendSkillList;
+    }
 }
+
+// we now have all data (148-153 line) and remaining is to upload on server , see line 151

@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/worktool_new-master.iml" filepath="$PROJECT_DIR$/.idea/modules/worktool_new-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="worktool_new/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/worktool_new.iml" filepath="$PROJECT_DIR$/.idea/modules/worktool_new.iml" group="worktool_new" />
     </modules>
   </component>
 </project>

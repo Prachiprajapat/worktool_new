@@ -4,85 +4,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:theme="@style/AppTheme3"
     android:orientation="vertical">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_15dp"
-        android:layout_marginTop="@dimen/_15sp"
-        android:fontFamily="@font/open_sans_bold"
-        android:text="SKILL*"
-        android:textSize="@dimen/_16sp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:id="@+id/ll_add"
-        android:layout_height="@dimen/_50dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_15dp"
         android:layout_marginTop="@dimen/_8dp"
         android:layout_marginRight="@dimen/_15dp"
-        android:background="@drawable/grey_stroke">
-
-        <EditText
-            android:id="@+id/ed_searchskills"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/_5dp"
-            android:layout_weight="1"
-            android:background="@null"
-            android:hint="Search skill.."
-            android:textColorHint="@color/colorGrey" />
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/tv_skill"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/_5dp"
             android:layout_weight="1"
-            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40dp"
+            android:layout_margin="@dimen/_5dp"
+            android:textSize="@dimen/_25sp"
             android:textColorHint="@color/colorGrey"
-            android:visibility="gone" />
-
-        <Spinner
-            android:id="@+id/sp_skills"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.1" />
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_10dp"
-        android:layout_marginTop="@dimen/_8dp"
-        android:layout_marginRight="@dimen/_10dp"
-        android:orientation="horizontal">
-
-        <RatingBar
-            android:id="@+id/rv_ratingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:max="5"
-            android:numStars="5"
-            android:stepSize="0.1"
-            android:theme="@style/RatingBar" />
-
+            android:visibility="visible" />
         <LinearLayout
             android:id="@+id/llDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/_15dp"
             android:layout_marginRight="@dimen/_15dp"
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="@dimen/_18dp"
-                android:layout_height="@dimen/_18dp"
+                android:layout_width="@dimen/_30dp"
+                android:layout_height="@dimen/_30dp"
                 android:src="@drawable/delete_grey" />
         </LinearLayout>
-    </RelativeLayout>
-</LinearLayout>
+    </LinearLayout>
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:numStars="5"
+        android:stepSize="1.0"
+        android:theme="@style/RatingBar"
+        android:visibility="visible"
+        android:layout_marginLeft="8dp" />
+
+    </LinearLayout>

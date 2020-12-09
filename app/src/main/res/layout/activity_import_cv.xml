@@ -54,6 +54,7 @@
                 android:textSize="@dimen/_13sp" />
 
             <EditText
+                android:id="@+id/cvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50dp"
                 android:layout_marginLeft="@dimen/_10dp"
@@ -74,6 +75,7 @@
                 android:textSize="@dimen/_13sp" />
 
             <EditText
+                android:id="@+id/cvLocation"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50dp"
                 android:layout_marginLeft="@dimen/_10dp"
@@ -94,6 +96,7 @@
                 android:textSize="@dimen/_13sp" />
 
             <EditText
+                android:id="@+id/cvSummary"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_60dp"
                 android:layout_marginLeft="@dimen/_10dp"
@@ -108,7 +111,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_8dp"
-                android:visibility="gone"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 
@@ -137,12 +139,9 @@
                     android:id="@+id/ratingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:max="5"
                     android:numStars="5"
-                    android:theme="@style/RatingBar"
-                    android:visibility="visible"
-                    android:layout_marginLeft="8dp"
-                    android:layout_weight="1.8"/>
+                    android:stepSize="1.0"
+                    android:layout_marginLeft="8dp"/>
 
                 <ImageView
                     android:layout_width="@dimen/_18dp"

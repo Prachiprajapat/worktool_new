@@ -9,13 +9,19 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.worktool_new.Adapters.AddSkillAdapter;
 import com.example.worktool_new.Adapters.ImportCvAdapter;
+import com.example.worktool_new.Models.AddSkillModel;
 import com.example.worktool_new.Models.getskills.CustomSkillModel;
 import com.example.worktool_new.Models.getskills.SkillBodyItem;
 import com.example.worktool_new.Models.getskills.SkillModel;
@@ -38,8 +44,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ImportCv extends AppCompatActivity implements ImportCvAdapter.onClickListener {
-    private LinearLayout addskill;
+public class ImportCv extends AppCompatActivity {
+    private TextView addskill;
     /* access modifiers changed from: private */
     public File attachmentFile = null;
     /* access modifiers changed from: private */
@@ -51,10 +57,12 @@ public class ImportCv extends AppCompatActivity implements ImportCvAdapter.onCli
     private ImageView ivBack;
     private ProgressDialog progress;
     private RatingBar ratingBar;
-    float ratingGive;
     private RecyclerView rvImportcv;
     /* access modifiers changed from: private */
     public ArrayList<SkillBodyItem> skillModelArrayList;
+    private EditText inputTitle, inputSummary,inputLocation, inputSkill;
+    public ArrayList<AddSkillModel> skillList;
+    public AddSkillAdapter cvAdapter;
 
     /* access modifiers changed from: protected */
     public void onCreate(Bundle savedInstanceState) {
@@ -64,7 +72,12 @@ public class ImportCv extends AppCompatActivity implements ImportCvAdapter.onCli
     }
 
     private void init() {
-        this.addskill = (LinearLayout) findViewById(R.id.ll_addskill);
+        inputTitle = findViewById(R.id.cvTitle);
+        inputSummary = findViewById(R.id.cvSummary);
+        inputLocation = findViewById(R.id.cvLocation);
+        inputSkill = findViewById(R.id.skillEditText);
+        ratingBar = findViewById(R.id.ratingBar);
+        this.addskill = findViewById(R.id.ll_addskill);
         this.btnUploadFile = (Button) findViewById(R.id.btnUploadFile);
         this.ivBack = (ImageView) findViewById(R.id.ivBack);
         this.rvImportcv = (RecyclerView) findViewById(R.id.rvImportcv);
@@ -106,8 +119,23 @@ public class ImportCv extends AppCompatActivity implements ImportCvAdapter.onCli
         });
         this.addskill.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                String skill = inputSkill.getText().toString();
+                Float rating = ratingBar.getRating();
+                addToView(skill, rating);
+                inputSkill.setText("");
+                ratingBar.setRating(0);
             }
         });
+    }
+
+    private void addToView(String skill, Float rating) {
+        AddSkillModel model = new AddSkillModel(skill, rating);
+        skillList = new ArrayList<>();
+        skillList.add(model);
+        cvAdapter = new AddSkillAdapter(ImportCv.this, skillList);
+        Log.i("ratibgList", "" + skillList.toString());
+        rvImportcv.setLayoutManager(new LinearLayoutManager(ImportCv.this,1, false));
+        rvImportcv.setAdapter(cvAdapter);
     }
 
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -120,7 +148,7 @@ public class ImportCv extends AppCompatActivity implements ImportCvAdapter.onCli
         ImagePickerUtil.imagePickerListener = imagePickerListener;
         ImagePickerUtil.context = context;
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
-        intent.setType("*/*");
+        intent.setType("/");
         context.startActivityForResult(Intent.createChooser(intent, "Select File"), 30000);
     }
 

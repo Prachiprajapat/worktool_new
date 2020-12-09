@@ -148,8 +148,8 @@ public class EditSkillAdapter extends RecyclerView.Adapter<EditSkillAdapter.View
             this.onaddClick = onaddClick2;
             itemView.setOnClickListener(this);
             this.ll_add = (LinearLayout) itemView.findViewById(R.id.ll_add);
-            this.search = (EditText) itemView.findViewById(R.id.ed_searchskills);
-            this.skills = (Spinner) itemView.findViewById(R.id.sp_skills);
+//            this.search = (EditText) itemView.findViewById(R.id.ed_searchskills);
+//            this.skills = (Spinner) itemView.findViewById(R.id.sp_skills);
         }
 
         public void onClick(View v) {

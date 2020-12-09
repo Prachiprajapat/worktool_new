@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:background="@drawable/gradiant" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:background="#f5efef" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/_20dp">
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_10dp" android:layout_marginTop="@dimen/_10dp" android:layout_marginRight="@dimen/_10dp" android:weightSum="2">
+            <RelativeLayout android:id="@+id/rlExportPdf" android:background="@drawable/button_style_blue_stroke" android:layout_width="0dp" android:layout_height="@dimen/_50dp" android:layout_weight="1">
+                <TextView android:textSize="@dimen/_17sp" android:textColor="@color/colorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Export PDF" android:layout_centerInParent="true"/>
+            </RelativeLayout>
+            <RelativeLayout android:id="@+id/rlExportCsv" android:background="@drawable/button_style_blue_stroke" android:layout_width="0dp" android:layout_height="@dimen/_50dp" android:layout_marginLeft="@dimen/_10dp" android:layout_weight="1">
+                <TextView android:textSize="@dimen/_17sp" android:textColor="@color/colorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Exporter CSV" android:layout_centerInParent="true"/>
+            </RelativeLayout>
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerStats" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/_10dp" android:layout_marginBottom="@dimen/_15dp" app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+    </LinearLayout>
+</LinearLayout>

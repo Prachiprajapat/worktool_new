@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:id="@+id/top_ll" android:background="@color/colorPrimary" android:layout_width="match_parent" android:layout_height="@dimen/_40dp"/>
+    <RelativeLayout android:id="@+id/top_bar" android:background="@color/colorPrimary" android:layout_width="match_parent" android:layout_height="@dimen/_50dp" android:layout_below="@+id/top_ll">
+        <ImageView android:id="@+id/iv_backAddCER" android:layout_width="@dimen/_30dp" android:layout_height="@dimen/_40dp" android:layout_marginLeft="@dimen/_10dp" android:src="@drawable/arrow_white" android:layout_centerVertical="true"/>
+        <TextView android:textSize="@dimen/_17sp" android:textStyle="bold" android:textColor="@color/colorWhite" android:id="@+id/tv_topbar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="FREINS" android:layout_centerHorizontal="true" android:layout_centerVertical="true" android:textAllCaps="true"/>
+    </RelativeLayout>
+    <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_above="@+id/tv_next" android:layout_below="@+id/top_bar">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_10dp" android:layout_marginRight="@dimen/_10dp">
+            <TextView android:textSize="@dimen/_16sp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_10dp" android:layout_marginTop="@dimen/_10dp" android:text="SANTE"/>
+            <LinearLayout android:background="@drawable/bg_grey_stroke" android:layout_width="match_parent" android:layout_height="@dimen/_80dp" android:layout_marginLeft="@dimen/_15dp" android:layout_marginTop="@dimen/_8dp" android:layout_marginRight="@dimen/_15dp">
+                <EditText android:textSize="@dimen/_14sp" android:id="@+id/etSante" android:background="@null" android:padding="@dimen/_10dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/_5dp"/>
+            </LinearLayout>
+            <TextView android:textSize="@dimen/_16sp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_10dp" android:layout_marginTop="@dimen/_15dp" android:text="MOBILITE"/>
+            <LinearLayout android:background="@drawable/bg_grey_stroke" android:layout_width="match_parent" android:layout_height="@dimen/_80dp" android:layout_marginLeft="@dimen/_15dp" android:layout_marginTop="@dimen/_8dp" android:layout_marginRight="@dimen/_15dp">
+                <EditText android:textSize="@dimen/_14sp" android:id="@+id/etMobLite" android:background="@null" android:padding="@dimen/_10dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/_5dp"/>
+            </LinearLayout>
+            <TextView android:textSize="@dimen/_16sp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_10dp" android:layout_marginTop="@dimen/_15dp" android:text="LOGEMENT"/>
+            <LinearLayout android:background="@drawable/bg_grey_stroke" android:layout_width="match_parent" android:layout_height="@dimen/_80dp" android:layout_marginLeft="@dimen/_15dp" android:layout_marginTop="@dimen/_8dp" android:layout_marginRight="@dimen/_15dp">
+                <EditText android:textSize="@dimen/_14sp" android:id="@+id/etLogement" android:background="@null" android:padding="@dimen/_10dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/_5dp"/>
+            </LinearLayout>
+            <TextView android:textSize="@dimen/_16sp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_10dp" android:layout_marginTop="@dimen/_15dp" android:text="ENVIRONNEMENT SOCIAL"/>
+            <LinearLayout android:background="@drawable/bg_grey_stroke" android:layout_width="match_parent" android:layout_height="@dimen/_80dp" android:layout_marginLeft="@dimen/_15dp" android:layout_marginTop="@dimen/_8dp" android:layout_marginRight="@dimen/_15dp">
+                <EditText android:textSize="@dimen/_14sp" android:id="@+id/etEnvironmentSocial" android:background="@null" android:padding="@dimen/_10dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/_5dp"/>
+            </LinearLayout>
+            <TextView android:textSize="@dimen/_16sp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_10dp" android:layout_marginTop="@dimen/_15dp" android:text="SITAUTION PERSONNELLE"/>
+            <LinearLayout android:background="@drawable/bg_grey_stroke" android:layout_width="match_parent" android:layout_height="@dimen/_80dp" android:layout_marginLeft="@dimen/_15dp" android:layout_marginTop="@dimen/_8dp" android:layout_marginRight="@dimen/_15dp">
+                <EditText android:textSize="@dimen/_14sp" android:id="@+id/etSituation" android:background="@null" android:padding="@dimen/_10dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/_5dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <TextView android:textSize="@dimen/_20sp" android:textStyle="bold" android:textColor="@color/colorWhite" android:gravity="center" android:id="@+id/tv_next" android:background="@color/colorPrimary" android:layout_width="match_parent" android:layout_height="@dimen/_50dp" android:text="Next" android:layout_alignParentBottom="true"/>
+</RelativeLayout>

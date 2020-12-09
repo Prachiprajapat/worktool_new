@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/_10dp"
+    android:orientation="vertical"
+    app:cardCornerRadius="@dimen/_5dp"
+    app:cardElevation="@dimen/_5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/_15dp"
+            android:weightSum="2">
+
+            <ImageView
+                android:id="@+id/ivMyEvent"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_130dp"
+                android:layout_weight="0.8"
+                android:scaleType="fitXY"
+                android:src="@drawable/profileplaceholder" />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_weight="1.2"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvMyEventTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/open_sans_bold"
+                            android:text="Young Encounter"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_14sp" />
+
+                        <ImageView
+                            android:id="@+id/ivEventType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="14dp"
+                            android:src="@drawable/lock" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_20dp"
+                        android:layout_marginTop="@dimen/_5dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.2"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tvDateHeading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Date :"
+                                android:textColor="@color/textGrey"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/tvDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_toRightOf="@+id/tvDateHeading"
+                                android:text="17.04.2020"
+                                android:textColor="@color/textGrey"
+                                android:textSize="12sp" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:background="@color/colorGrey" />
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/_10dp"
+                            android:layout_weight="0.8"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="Time: "
+                                android:textColor="@color/textGrey"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/tvTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="10:03"
+                                android:textColor="@color/textGrey"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvMyEventName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:text="Mr. Mezu Lionel"
+                        android:textColor="@color/textGrey"
+                        android:textSize="@dimen/_13sp" />
+
+                    <TextView
+                        android:id="@+id/tvMyEventType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:text="Reseau"
+                        android:textColor="@color/textGrey"
+                        android:textSize="@dimen/_13sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1dp"
+                        android:layout_marginTop="@dimen/_5dp"
+                        android:background="@color/colorGrey" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/_5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:id="@+id/llParticipents"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/particpents"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/open_sans_bold"
+                            android:text="Participent"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/_11sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.03"
+                        android:background="@color/colorGrey" />
+
+                    <LinearLayout
+                        android:id="@+id/llEditEvent"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/open_sans_bold"
+                            android:text="Edit"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/_11sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.03"
+                        android:background="@color/colorGrey" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_deleteEvent"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/open_sans_bold"
+                            android:text="Remove"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/_11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

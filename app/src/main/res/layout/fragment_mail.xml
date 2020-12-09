@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@+id/ll_send">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_20dp" android:layout_marginTop="@dimen/_20dp" android:layout_marginRight="@dimen/_20dp">
+            <ImageView android:id="@+id/iv_close" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/close"/>
+            <ImageView android:id="@+id/iv_sd" android:layout_width="@dimen/_20dp" android:layout_height="@dimen/_20dp" android:src="@drawable/threedots" android:layout_alignParentRight="true" android:layout_alignParentEnd="true"/>
+            <ImageView android:layout_width="@dimen/_20dp" android:layout_height="@dimen/_20dp" android:layout_marginRight="@dimen/_20dp" android:src="@drawable/sd3" android:layout_toLeftOf="@+id/iv_sd"/>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_20dp">
+            <EditText android:textSize="@dimen/_16sp" android:textColor="@color/textGrey" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_20dp" android:layout_marginRight="@dimen/_20dp" android:hint="To"/>
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/down" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10dp">
+            <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_20dp" android:layout_marginTop="@dimen/_10dp" android:hint="Subject"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10dp">
+            <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_20dp" android:layout_marginTop="@dimen/_10dp" android:hint="Message"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@+id/ll_send" android:background="@color/colorPrimary" android:layout_width="match_parent" android:layout_height="@dimen/_50dp" android:layout_alignParentBottom="true">
+        <TextView android:textSize="@dimen/_18sp" android:textStyle="bold" android:textColor="@color/colorWhite" android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent" android:text="SAVE"/>
+    </LinearLayout>
+</RelativeLayout>

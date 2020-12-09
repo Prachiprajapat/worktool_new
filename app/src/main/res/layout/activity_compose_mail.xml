@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_send"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20dp"
+            android:layout_marginTop="@dimen/_20dp"
+            android:layout_marginRight="@dimen/_20dp">
+
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="@dimen/_20dp"
+                android:layout_height="@dimen/_20dp"
+                android:src="@drawable/close"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/iv_sd"
+                android:layout_width="@dimen/_20dp"
+                android:layout_height="@dimen/_20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/threedots" />
+
+            <ImageView
+                android:id="@+id/ivAttachment"
+                android:layout_width="@dimen/_20dp"
+                android:layout_height="@dimen/_20dp"
+                android:layout_marginRight="@dimen/_20dp"
+                android:layout_toLeftOf="@+id/iv_sd"
+                android:src="@drawable/sd3" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20dp">
+
+            <TextView
+                android:id="@+id/tvTo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_20dp"
+                android:layout_marginRight="@dimen/_20dp"
+                android:text="To"
+                android:textColor="@color/textGrey"
+                android:textSize="@dimen/_16sp" />
+
+            <Spinner
+                android:id="@+id/spinnerTo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvTo"
+                android:layout_marginLeft="@dimen/_20dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginRight="@dimen/_20dp"
+                android:hint="To"
+                android:textColor="@color/textGrey"
+                android:textSize="@dimen/_16sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10dp">
+
+            <EditText
+                android:id="@+id/etSubject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_20dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:hint="Subject" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10dp">
+
+            <EditText
+                android:id="@+id/etMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_20dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:hint="Message" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_attachement"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/_80dp"
+        android:background="@drawable/white_stroke"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/colorBlack"
+            android:id="@+id/tv_attachement"
+            android:gravity="center"
+            android:visibility="gone"
+            android:drawableLeft="@drawable/ic_baseline_attachment_24">
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_send"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvSendMail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="SEND"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</RelativeLayout>

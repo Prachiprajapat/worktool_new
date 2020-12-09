@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiant"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/_20dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_marginRight="@dimen/_20dp"
+        android:background="@drawable/serach_background"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/search_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_20dp"
+            android:src="@drawable/search" />
+
+        <EditText
+            android:id="@+id/ed_searchMembers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:layout_marginRight="@dimen/_10dp"
+            android:layout_toRightOf="@+id/search_icon"
+            android:background="@null"
+            android:hint="Search"
+            android:textColor="@color/textGrey"
+            android:textSize="@dimen/_16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_20dp"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20dp">
+
+            <TextView
+                android:id="@+id/tvTotalMember"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:text="No Members added"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/ll_add_member"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/_8dp"
+                android:background="@drawable/button_style2"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_10dp"
+                    android:src="@drawable/add" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_8dp"
+                    android:layout_marginRight="@dimen/_10dp"
+                    android:text="Member"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_members"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_8dp"
+            android:layout_marginBottom="@dimen/_15dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <TextView
+            android:id="@+id/tvNoDataFound"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/tvNoDataFound"
+            android:textAlignment="center"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold"
+            android:visibility="gone" />
+    </LinearLayout>
+</LinearLayout>

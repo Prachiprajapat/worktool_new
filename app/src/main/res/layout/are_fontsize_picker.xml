@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView android:textSize="18sp" android:gravity="center" android:id="@+id/are_fontsize_preview" android:focusable="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="18sp: Preview" android:layout_weight="1"/>
+    <SeekBar android:id="@+id/are_fontsize_seekbar" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="38" android:progress="6" android:layout_weight="1" style="@style/Widget.AppCompat.SeekBar"/>
+</LinearLayout>

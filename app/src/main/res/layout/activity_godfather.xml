@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:background="@color/colorPrimary" android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/_40dp" android:layout_marginTop="@dimen/_25dp">
+        <ImageView android:id="@+id/backButton" android:layout_width="@dimen/_20dp" android:layout_height="@dimen/_20dp" android:layout_marginLeft="@dimen/_15dp" android:src="@drawable/arrow_white" android:layout_centerVertical="true"/>
+        <TextView android:textSize="@dimen/_16sp" android:textStyle="bold" android:textColor="@color/colorWhite" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MEMBER" android:layout_centerInParent="true"/>
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_15dp" android:layout_marginTop="@dimen/_10dp" android:layout_marginRight="@dimen/_15dp">
+        <de.hdodenhof.circleimageview.CircleImageView android:id="@+id/ivPersonImage" android:layout_width="@dimen/_60dp" android:layout_height="@dimen/_60dp" android:src="@drawable/person_girl"/>
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_15dp" android:layout_toRightOf="@+id/ivPersonImage" android:layout_centerInParent="true">
+            <TextView android:textSize="@dimen/_15sp" android:textColor="@color/colorWhite" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Samia Adellaoub" android:fontFamily="@font/open_sans_bold"/>
+            <TextView android:textSize="@dimen/_14sp" android:textColor="@color/colorWhite" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5dp" android:text="Samia17@laposte.net" android:fontFamily="@font/open_sans_regular"/>
+        </LinearLayout>
+    </RelativeLayout>
+    <ScrollView android:background="@color/colorWhite" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="20dp">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="5dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/_50dp" android:weightSum="2">
+                <TextView android:textSize="@dimen/_15sp" android:textColor="@color/colorBlack" android:layout_gravity="center_vertical" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_8dp" android:text="List of Available Sponsers" android:layout_weight="1.3" android:fontFamily="@font/open_sans_bold"/>
+                <TextView android:textSize="@dimen/_18sp" android:textStyle="bold" android:textColor="@color/colorWhite" android:gravity="center" android:layout_gravity="center" android:background="@drawable/button_style2" android:layout_width="0dp" android:layout_height="@dimen/_35dp" android:layout_marginRight="@dimen/_10dp" android:text="Attribute" android:layout_weight="0.7" android:textAlignment="center"/>
+            </LinearLayout>
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/_8dp">
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerSponsors" android:padding="@dimen/_8dp" android:layout_width="match_parent" android:layout_height="match_parent" app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

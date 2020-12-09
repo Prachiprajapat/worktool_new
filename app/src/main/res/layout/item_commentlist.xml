@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:id="@+id/main_layout" android:padding="5dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="horizontal" android:id="@+id/linear_layout" android:padding="5dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView android:id="@+id/image_url" android:layout_width="36dp" android:layout_height="36dp" android:layout_margin="10dp" android:src="@drawable/user" app:civ_border_color="#000" app:civ_border_width="1dp"/>
+        <LinearLayout android:orientation="vertical" android:background="@drawable/wall_comment_shape" android:padding="@dimen/_5dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="4dp" android:layout_marginTop="8dp">
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="4dp" android:layout_marginTop="5dp" android:weightSum="1">
+                <TextView android:textSize="14sp" android:id="@+id/name" android:layout_width="0dp" android:layout_height="wrap_content" android:text="Name" android:layout_weight="0.99"/>
+                <ImageView android:id="@+id/ivCommentMenu" android:padding="@dimen/_5dp" android:layout_width="30dp" android:layout_height="wrap_content" android:layout_marginRight="@dimen/_2dp" android:src="@drawable/verticle_dots" android:layout_alignParentRight="true" android:layout_marginEnd="@dimen/_2dp" android:layout_alignParentEnd="true"/>
+            </LinearLayout>
+            <TextView android:textSize="12sp" android:id="@+id/commentDate" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5dp" android:text="12-02-2020" android:layout_marginStart="@dimen/_5dp"/>
+            <TextView android:textSize="12sp" android:id="@+id/comment" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="comment" android:layout_marginStart="@dimen/_5dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

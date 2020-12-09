@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/member_wht"
+        android:title="My Profile" />
+    <item
+        android:id="@+id/nav_advisor"
+        android:icon="@drawable/advisor_white"
+        android:title="My Advisor"
+        android:visible="false" />
+    <item
+        android:id="@+id/nav_agenda"
+        android:icon="@drawable/advisor_white"
+        android:title="My Agenda"
+        android:visible="false" />
+    <item
+        android:id="@+id/nav_stats"
+        android:icon="@drawable/advisor_white"
+        android:title="Stats"
+        android:visible="false" />
+    <item
+        android:id="@+id/nav_wall"
+        android:icon="@drawable/wall_wht"
+        android:title="Wall" />
+    <item
+        android:id="@+id/nav_cv"
+        android:icon="@drawable/cv_wht"
+        android:title="CV" />
+    <item
+        android:id="@+id/nav_wallpro"
+        android:icon="@drawable/wall_wht"
+        android:title="Wall Pro" />
+    <item
+        android:id="@+id/nav_network"
+        android:icon="@drawable/network_wht"
+        android:title="Network" />
+    <item
+        android:id="@+id/nav_members"
+        android:icon="@drawable/member_wht"
+        android:title="Members" />
+    <item
+        android:id="@+id/nav_mail"
+        android:icon="@drawable/mail_wht"
+        android:title="Mail" />
+    <item
+        android:id="@+id/nav_alert"
+        android:icon="@drawable/alert_wht"
+        android:title="Alert"
+        android:visible="false" />
+    <item
+        android:id="@+id/nav_article"
+        android:icon="@drawable/article_wht"
+        android:title="Article"
+        android:visible="false" />
+    <item
+        android:id="@+id/nav_data"
+        android:icon="@drawable/data_wht"
+        android:title="Data" />
+    <item
+        android:id="@+id/nav_event"
+        android:icon="@drawable/event_wht"
+        android:title="Event" />
+    <item
+        android:id="@+id/nav_chat"
+        android:icon="@drawable/chat_wht"
+        android:title="Chat" />
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/logout_wht"
+        android:title="Logout" />
+</menu>

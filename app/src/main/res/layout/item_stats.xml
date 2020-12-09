@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_10dp" android:layout_marginRight="@dimen/_10dp" android:layout_marginBottom="@dimen/_10dp" app:cardCornerRadius="@dimen/_5dp">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_10dp" android:layout_marginTop="@dimen/_10dp" android:layout_marginRight="@dimen/_8dp">
+            <TextView android:textSize="@dimen/_16sp" android:textColor="@color/colorBlack" android:id="@+id/tvStatsTitleName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ragis Ondu" android:fontFamily="@font/open_sans_bold"/>
+            <TextView android:textSize="@dimen/_14sp" android:textColor="@color/textGrey" android:id="@+id/tvStatsDate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="08-04-2013" android:layout_alignParentRight="true" android:fontFamily="@font/open_sans_bold"/>
+        </RelativeLayout>
+        <TextView android:textSize="@dimen/_16sp" android:textColor="@color/textGrey" android:id="@+id/tvStatsEmail" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_10dp" android:layout_marginTop="@dimen/_8dp" android:layout_marginRight="@dimen/_8dp" android:text="rg@hotmail.com" android:layout_alignParentRight="true" android:fontFamily="@font/open_sans_regular"/>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_10dp" android:layout_marginTop="@dimen/_15dp" android:layout_marginRight="@dimen/_8dp" android:layout_marginBottom="@dimen/_15dp" android:weightSum="5">
+            <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1">
+                <TextView android:textSize="@dimen/_15sp" android:textColor="@color/colorBlack" android:ellipsize="end" android:id="@+id/tvStatsConnection" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="336" android:maxLines="1" android:maxLength="7" android:fontFamily="@font/open_sans_bold"/>
+                <TextView android:textSize="@dimen/_13sp" android:textColor="@color/textGrey" android:ellipsize="end" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Connexion" android:maxLines="1" android:fontFamily="@font/open_sans_regular"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1">
+                <TextView android:textSize="@dimen/_15sp" android:textColor="@color/colorBlack" android:ellipsize="end" android:id="@+id/tvStatsPostuler" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="25" android:maxLines="1" android:maxLength="7" android:fontFamily="@font/open_sans_bold"/>
+                <TextView android:textSize="@dimen/_13sp" android:textColor="@color/textGrey" android:ellipsize="end" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Postuler" android:maxLines="1" android:fontFamily="@font/open_sans_regular"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1">
+                <TextView android:textSize="@dimen/_15sp" android:textColor="@color/colorBlack" android:ellipsize="end" android:id="@+id/tvStatsSaviour" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="38" android:maxLines="1" android:maxLength="7" android:fontFamily="@font/open_sans_bold"/>
+                <TextView android:textSize="@dimen/_13sp" android:textColor="@color/textGrey" android:ellipsize="end" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Saviour" android:maxLines="1" android:fontFamily="@font/open_sans_regular"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1">
+                <TextView android:textSize="@dimen/_15sp" android:textColor="@color/colorBlack" android:ellipsize="end" android:id="@+id/tvStatsMatch" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1" android:maxLines="1" android:maxLength="7" android:fontFamily="@font/open_sans_bold"/>
+                <TextView android:textSize="@dimen/_13sp" android:textColor="@color/textGrey" android:ellipsize="end" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Match" android:maxLines="1" android:fontFamily="@font/open_sans_regular"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1">
+                <TextView android:textSize="@dimen/_15sp" android:textColor="@color/colorBlack" android:ellipsize="end" android:id="@+id/tvStatsCER" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2" android:maxLines="1" android:maxLength="7" android:fontFamily="@font/open_sans_bold"/>
+                <TextView android:textSize="@dimen/_13sp" android:textColor="@color/textGrey" android:ellipsize="end" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CER" android:maxLines="1" android:fontFamily="@font/open_sans_regular"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

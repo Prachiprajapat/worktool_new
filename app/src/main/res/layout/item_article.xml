@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/_200dp">
+        <ImageView android:id="@+id/llArticleBackground" android:layout_width="match_parent" android:layout_height="@dimen/_200dp" android:layout_marginLeft="@dimen/_15dp" android:layout_marginTop="@dimen/_15dp" android:layout_marginRight="@dimen/_15dp" android:src="@drawable/article" android:scaleType="fitXY"/>
+        <RelativeLayout android:orientation="vertical" android:background="#16000000" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_20dp" android:layout_marginRight="@dimen/_15dp" android:layout_marginBottom="@dimen/_15dp" android:layout_alignParentBottom="true">
+                <TextView android:textSize="@dimen/_20sp" android:textStyle="bold" android:textColor="@color/colorWhite" android:id="@+id/tvArticleTitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Association, Voluntring"/>
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_15dp">
+                    <TextView android:textSize="@dimen/_17sp" android:textColor="@color/colorWhite" android:id="@+id/tvArticleAuthor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Author: Liunen Mezu"/>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/_15dp" android:layout_alignParentRight="true" android:layout_alignParentEnd="true">
+                        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/delete_white"/>
+                        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_20dp" android:src="@drawable/edit_white"/>
+                    </LinearLayout>
+                </RelativeLayout>
+                <TextView android:textSize="@dimen/_17sp" android:textColor="@color/colorWhite" android:id="@+id/tvArticleDate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Date: 15-10-2019"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

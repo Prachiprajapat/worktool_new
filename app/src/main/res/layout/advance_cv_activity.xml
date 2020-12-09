@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_20dp"
+        android:layout_marginTop="@dimen/_30dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Advance search CV"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_23sp" />
+
+    <ImageView
+        android:id="@+id/iv_cross"
+        android:layout_width="@dimen/_28dp"
+        android:layout_height="@dimen/_28dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/_30dp"
+        android:layout_marginRight="@dimen/_20dp"
+        android:src="@drawable/cross_grey" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_search"
+        android:layout_below="@+id/iv_cross"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_marginBottom="@dimen/_20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_15sp"
+            android:layout_marginRight="@dimen/_15sp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_43dp"
+                android:layout_gravity="center"
+                android:background="@drawable/blue_bg"
+                android:fontFamily="@font/open_sans_bold"
+                android:gravity="center"
+                android:text="Show Only Avaliable Profiles"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_15sp"
+                android:fontFamily="@font/open_sans_regular"
+                android:gravity="center"
+                android:text="Or Enter the details"
+                android:textSize="@dimen/_16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="TITLE OF THE CV"
+                android:textColor="@color/textGrey"
+                android:textSize="@dimen/_13sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50dp"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_8dp"
+                android:layout_marginRight="@dimen/_10dp"
+                android:background="@drawable/bg_grey_stroke"
+                android:padding="@dimen/_10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="DESIRED POSITION"
+                android:textColor="@color/textGrey"
+                android:textSize="@dimen/_13sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50dp"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_8dp"
+                android:layout_marginRight="@dimen/_10dp"
+                android:background="@drawable/bg_grey_stroke"
+                android:padding="@dimen/_10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="EXPERIENCE"
+                android:textColor="@color/textGrey"
+                android:textSize="@dimen/_13sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50dp"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_8dp"
+                android:layout_marginRight="@dimen/_10dp"
+                android:background="@drawable/bg_grey_stroke"
+                android:padding="@dimen/_10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="TRAINING"
+                android:textColor="@color/textGrey"
+                android:textSize="@dimen/_13sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50dp"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_8dp"
+                android:layout_marginRight="@dimen/_10dp"
+                android:background="@drawable/bg_grey_stroke"
+                android:padding="@dimen/_10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="SKILL"
+                android:textColor="@color/textGrey"
+                android:textSize="@dimen/_13sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50dp"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_8dp"
+                android:layout_marginRight="@dimen/_10dp"
+                android:background="@drawable/bg_grey_stroke"
+                android:padding="@dimen/_10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="ALLOWED"
+                android:textColor="@color/textGrey"
+                android:textSize="@dimen/_13sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="@dimen/_10dp"
+                android:background="@drawable/bg_grey_stroke">
+
+                <Spinner
+                    android:id="@+id/sp_membertype"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="@dimen/_16sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tv_search"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:fontFamily="@font/open_sans_bold"
+        android:gravity="center"
+        android:text="Search"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/_17sp" />
+</RelativeLayout>

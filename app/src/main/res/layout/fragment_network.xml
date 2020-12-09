@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiant"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rlSearch"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40dp"
+        android:layout_marginLeft="@dimen/_20dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_marginRight="@dimen/_20dp"
+        android:background="@drawable/serach_background">
+
+        <ImageView
+            android:id="@+id/search_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_20dp"
+            android:src="@drawable/search" />
+
+        <EditText
+            android:id="@+id/etSearchNetwork"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:layout_marginRight="@dimen/_10dp"
+            android:layout_toRightOf="@+id/search_icon"
+            android:background="@null"
+            android:hint="Search Network..."
+            android:textColor="@color/textGrey"
+            android:textSize="@dimen/_16sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbarStyle="insideInset">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/llInvitationReceived"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_8dp"
+                    android:layout_marginTop="@dimen/_15dp"
+                    android:text="Invitation Received"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_16sp" />
+
+                <View
+                    android:id="@+id/viewInvitationReceived"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/_8dp"
+                    android:background="@color/colorWhite"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llMyNetwork"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginRight="@dimen/_10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_8dp"
+                    android:layout_marginTop="@dimen/_15dp"
+                    android:text="My network"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_16sp" />
+
+                <View
+                    android:id="@+id/viewMyNetwork"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/_8dp"
+                    android:background="@color/colorWhite"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSendInvitation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_8dp"
+                    android:layout_marginTop="@dimen/_15dp"
+                    android:text="Send an Invitation"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_16sp" />
+
+                <View
+                    android:id="@+id/viewSendInvitation"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/_8dp"
+                    android:background="@color/colorWhite"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_5dp"
+        android:background="#f5efef"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_invitation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_10dp"
+            android:padding="@dimen/_5dp"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvNoDataFound"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/tvNoDataFound"
+            android:textAlignment="center"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/llsendInvitationlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_5dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_12dp"
+                android:layout_marginRight="@dimen/_10dp"
+                android:text="Search a Member"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_12dp"
+                android:layout_marginRight="@dimen/_10dp"
+                android:text="Name"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_14sp" />
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50dp"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_8dp"
+                android:layout_marginRight="@dimen/_10dp"
+                android:background="@drawable/shape_rect_btn_style2"
+                android:imeOptions="actionNext"
+                android:nextFocusDown="@+id/etEmailAddress"
+                android:paddingStart="@dimen/_10dp"
+                android:paddingLeft="@dimen/_10dp"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_15dp"
+                android:layout_marginRight="@dimen/_10dp"
+                android:text="Email Address"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_14sp" />
+
+            <EditText
+                android:id="@+id/etEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50dp"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_8dp"
+                android:layout_marginRight="@dimen/_10dp"
+                android:background="@drawable/shape_rect_btn_style2"
+                android:imeOptions="actionDone"
+                android:inputType="textEmailAddress"
+                android:paddingStart="@dimen/_10dp"
+                android:paddingLeft="@dimen/_10dp" />
+
+            <Button
+                android:id="@+id/btnSearchInvitationMember"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50dp"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_15dp"
+                android:layout_marginRight="@dimen/_10dp"
+                android:background="@drawable/button_style"
+                android:text="Search a Member"
+                android:textColor="@color/colorWhite" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

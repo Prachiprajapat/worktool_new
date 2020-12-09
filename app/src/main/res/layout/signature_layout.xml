@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/top_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_20dp"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical" />
+
+    <RelativeLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50dp"
+        android:layout_below="@+id/top_ll"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/iv_backAddCER"
+            android:layout_width="@dimen/_30dp"
+            android:layout_height="@dimen/_40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:src="@drawable/arrow_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="SIGNATURE"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_16sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_bootom2"
+        android:layout_below="@+id/top_bar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:layout_marginRight="@dimen/_10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10dp"
+                android:text="Numero Du Contrat"
+                android:textAllCaps="true"
+                android:textSize="@dimen/_14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50dp"
+                android:layout_marginTop="@dimen/_8dp"
+                android:background="@drawable/bg_grey_stroke">
+
+                <EditText
+                    android:id="@+id/etNumeroDuContrat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5dp"
+                    android:background="@null"
+                    android:padding="@dimen/_10dp"
+                    android:textSize="@dimen/_14sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10dp"
+                android:text="SIGNATURE CONSEILLER"
+                android:textSize="@dimen/_14sp" />
+
+            <com.github.gcacace.signaturepad.views.SignaturePad
+                android:id="@+id/signature_pad_consellor"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120dp"
+                android:layout_marginTop="@dimen/_8dp"
+                android:background="@drawable/blue_stroke_bg"
+                app:penColor="@android:color/black" />
+
+            <ImageView
+                android:id="@+id/ivSignature_pad_consellor"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120dp"
+                android:layout_marginTop="@dimen/_8dp"
+                android:background="@drawable/bg_signature"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10dp"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnSaveConseillerSignature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10dp"
+                    android:layout_marginRight="@dimen/_10dp"
+                    android:background="@drawable/round_blue_bg"
+                    android:enabled="false"
+                    android:paddingLeft="@dimen/_30dp"
+                    android:paddingTop="@dimen/_10dp"
+                    android:paddingRight="@dimen/_30dp"
+                    android:paddingBottom="@dimen/_10dp"
+                    android:text="@string/saveSignature"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_14sp" />
+
+                <Button
+                    android:id="@+id/btnResetConseillerSignature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_blue_bg"
+                    android:enabled="false"
+                    android:paddingLeft="@dimen/_30dp"
+                    android:paddingTop="@dimen/_10dp"
+                    android:paddingRight="@dimen/_30dp"
+                    android:paddingBottom="@dimen/_10dp"
+                    android:text="@string/resetSignature"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_160dp"
+                android:layout_marginTop="@dimen/_8dp"
+                android:background="@drawable/blue_stroke_bg"
+                android:visibility="gone">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5dp"
+                    android:background="@null"
+                    android:padding="@dimen/_10dp"
+                    android:textSize="@dimen/_14sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10dp"
+                android:text="SIGNATURE BENEFICIARE"
+                android:textSize="@dimen/_14sp" />
+
+            <com.github.gcacace.signaturepad.views.SignaturePad
+                android:id="@+id/signature_pad_benefecire"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120dp"
+                android:layout_marginTop="@dimen/_8dp"
+                android:background="@drawable/blue_stroke_bg"
+                app:penColor="@android:color/black" />
+
+            <ImageView
+                android:id="@+id/ivSignature_pad_benefecire"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120dp"
+                android:layout_marginTop="@dimen/_8dp"
+                android:background="@drawable/bg_signature"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10dp"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnSaveBeneficiareSignature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10dp"
+                    android:layout_marginRight="@dimen/_10dp"
+                    android:background="@drawable/round_blue_bg"
+                    android:enabled="false"
+                    android:paddingLeft="@dimen/_30dp"
+                    android:paddingTop="@dimen/_10dp"
+                    android:paddingRight="@dimen/_30dp"
+                    android:paddingBottom="@dimen/_10dp"
+                    android:text="@string/saveSignature"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_14sp" />
+
+                <Button
+                    android:id="@+id/btnResetBeneficiareSignature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_blue_bg"
+                    android:enabled="false"
+                    android:paddingLeft="@dimen/_30dp"
+                    android:paddingTop="@dimen/_10dp"
+                    android:paddingRight="@dimen/_30dp"
+                    android:paddingBottom="@dimen/_10dp"
+                    android:text="@string/resetSignature"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_160dp"
+                android:layout_marginTop="@dimen/_8dp"
+                android:background="@drawable/blue_stroke_bg"
+                android:visibility="gone">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5dp"
+                    android:background="@null"
+                    android:padding="@dimen/_10dp"
+                    android:textSize="@dimen/_14sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_bootom2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_register"
+        android:layout_margin="@dimen/_5dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_42dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_blue_bg"
+            android:gravity="center"
+            android:text="Telecharger CER"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_14sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_42dp"
+            android:layout_marginStart="@dimen/_10dp"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_blue_bg"
+            android:gravity="center"
+            android:text="Signer CER"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_14sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_register"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_42dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/_10dp"
+        android:background="@drawable/round_blue_bg"
+        android:gravity="center"
+        android:text="Enregister"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/_18sp"
+        android:textStyle="bold" />
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:background="#ffffff" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:gravity="center" android:id="@+id/default_image_preview" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerInside" android:keepScreenOn="true"/>
+    <FrameLayout android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:layout_gravity="bottom|center_vertical|center_horizontal|center" android:orientation="horizontal" android:id="@+id/fullscreen_content_controls" android:background="@color/black_overlay" android:layout_width="match_parent" android:layout_height="wrap_content" style="?attr/metaButtonBarStyle">
+            <Button android:id="@+id/default_button_save" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/save_to_local" android:layout_weight="1" style="?attr/metaButtonBarButtonStyle"/>
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>

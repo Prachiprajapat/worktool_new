@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:background="@drawable/gradiant" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_15dp" android:weightSum="2">
+        <LinearLayout android:orientation="horizontal" android:background="@drawable/button_style_toggle" android:layout_width="0dp" android:layout_height="@dimen/_40dp" android:layout_marginLeft="@dimen/_20dp" android:weightSum="2" android:layout_weight="1">
+            <RelativeLayout android:id="@+id/rel_Inbox" android:background="@drawable/serach_background" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="0.9">
+                <TextView android:textSize="@dimen/_16sp" android:textColor="@color/colorPrimary" android:id="@+id/tvInbox" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Inbox" android:layout_centerInParent="true"/>
+            </RelativeLayout>
+            <RelativeLayout android:id="@+id/rel_SendMail" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.1">
+                <TextView android:textSize="@dimen/_16sp" android:textColor="@color/colorWhite" android:id="@+id/tvSendMail" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Send Mail" android:layout_centerInParent="true"/>
+            </RelativeLayout>
+        </LinearLayout>
+        <RelativeLayout android:layout_width="0dp" android:layout_height="@dimen/_40dp" android:layout_marginLeft="@dimen/_15dp" android:layout_marginRight="@dimen/_15dp" android:layout_weight="1">
+            <RelativeLayout android:id="@+id/rlComposeMail" android:background="@drawable/white_stroke" android:layout_width="110dp" android:layout_height="@dimen/_30dp" android:layout_centerInParent="true">
+                <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                    <ImageView android:layout_gravity="center_vertical" android:layout_width="@dimen/_18dp" android:layout_height="@dimen/_18dp" android:src="@drawable/add_white"/>
+                    <TextView android:textSize="@dimen/_16sp" android:textColor="@color/colorWhite" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_8dp" android:text="Compose"/>
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:background="@color/background" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/_20dp">
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerInbox" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/_8dp" android:layout_marginBottom="@dimen/_10dp" app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        <TextView android:textStyle="bold" android:textColor="@color/colorBlack" android:gravity="center" android:layout_gravity="center" android:id="@+id/tvNoDataFound" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:text="@string/tvNoDataFound" android:textAlignment="center"/>
+    </LinearLayout>
+</LinearLayout>

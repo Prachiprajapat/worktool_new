@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:background="@drawable/gradiant" android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/_50dp" android:layout_marginTop="@dimen/_15dp">
+        <TextView android:textSize="@dimen/_15sp" android:textStyle="bold" android:textColor="@color/colorWhite" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Upload a Resume" android:layout_centerInParent="true"/>
+        <TextView android:textSize="@dimen/_15sp" android:textStyle="bold" android:textColor="@color/colorWhite" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/_10dp" android:text="Save" android:layout_alignParentRight="true" android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <ScrollView android:background="@color/colorWhite" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/_8dp">
+        <LinearLayout android:orientation="vertical" android:background="@color/colorWhite" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/_8dp">
+            <TextView android:textSize="@dimen/_13sp" android:textColor="@color/textGrey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_10dp" android:layout_marginTop="@dimen/_10dp" android:text="TITLE OF THE CV" android:fontFamily="@font/open_sans_bold"/>
+            <EditText android:background="@drawable/grey_stroke" android:padding="@dimen/_10dp" android:layout_width="match_parent" android:layout_height="@dimen/_40dp" android:layout_marginLeft="@dimen/_10dp" android:layout_marginTop="@dimen/_8dp" android:layout_marginRight="@dimen/_10dp"/>
+            <TextView android:textSize="@dimen/_13sp" android:textColor="@color/textGrey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_10dp" android:layout_marginTop="@dimen/_10dp" android:text="LOCATION *" android:fontFamily="@font/open_sans_bold"/>
+            <EditText android:background="@drawable/grey_stroke" android:padding="@dimen/_10dp" android:layout_width="match_parent" android:layout_height="@dimen/_40dp" android:layout_marginLeft="@dimen/_10dp" android:layout_marginTop="@dimen/_8dp" android:layout_marginRight="@dimen/_10dp"/>
+            <TextView android:textSize="@dimen/_13sp" android:textColor="@color/textGrey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_10dp" android:layout_marginTop="@dimen/_10dp" android:text="CV SUMMERY" android:fontFamily="@font/open_sans_bold"/>
+            <EditText android:background="@drawable/grey_stroke" android:padding="@dimen/_10dp" android:layout_width="match_parent" android:layout_height="@dimen/_60dp" android:layout_marginLeft="@dimen/_10dp" android:layout_marginTop="@dimen/_8dp" android:layout_marginRight="@dimen/_10dp"/>
+            <TextView android:textSize="@dimen/_13sp" android:textColor="@color/textGrey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_10dp" android:layout_marginTop="@dimen/_10dp" android:text="SKILL *" android:fontFamily="@font/open_sans_bold"/>
+            <EditText android:background="@drawable/grey_stroke" android:padding="@dimen/_10dp" android:layout_width="match_parent" android:layout_height="@dimen/_50dp" android:layout_marginLeft="@dimen/_10dp" android:layout_marginTop="@dimen/_8dp" android:layout_marginRight="@dimen/_10dp"/>
+            <RelativeLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_10dp" android:layout_marginTop="@dimen/_8dp" android:layout_marginRight="@dimen/_10dp">
+                <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="@dimen/_20dp" android:layout_height="@dimen/_20dp" android:src="@drawable/star_bookmark"/>
+                    <ImageView android:layout_width="@dimen/_20dp" android:layout_height="@dimen/_20dp" android:src="@drawable/star_bookmark"/>
+                    <ImageView android:layout_width="@dimen/_20dp" android:layout_height="@dimen/_20dp" android:src="@drawable/star_grey"/>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/_10dp" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+                    <ImageView android:layout_width="@dimen/_18dp" android:layout_height="@dimen/_18dp" android:src="@drawable/add_blue"/>
+                    <TextView android:textSize="@dimen/_14sp" android:textColor="@color/colorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_8dp" android:text="Add" android:fontFamily="@font/open_sans_bold"/>
+                </LinearLayout>
+            </RelativeLayout>
+            <TextView android:textSize="@dimen/_13sp" android:textColor="@color/textGrey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_10dp" android:layout_marginTop="@dimen/_10dp" android:text="UPLOAD FILE" android:fontFamily="@font/open_sans_bold"/>
+            <Button android:textColor="@color/colorPrimary" android:background="@drawable/button_style_stroke" android:padding="@dimen/_10dp" android:layout_width="match_parent" android:layout_height="@dimen/_50dp" android:layout_marginLeft="@dimen/_10dp" android:layout_marginTop="@dimen/_8dp" android:layout_marginRight="@dimen/_10dp" android:text="UPLOAD FILE"/>
+            <Button android:textColor="@color/colorWhite" android:background="@drawable/button_style" android:padding="@dimen/_10dp" android:layout_width="match_parent" android:layout_height="@dimen/_50dp" android:layout_marginLeft="@dimen/_10dp" android:layout_marginTop="@dimen/_15dp" android:layout_marginRight="@dimen/_10dp" android:layout_marginBottom="@dimen/_15dp" android:text="Save"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

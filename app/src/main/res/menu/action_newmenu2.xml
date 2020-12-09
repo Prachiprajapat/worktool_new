@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/modifier"
+        android:title="Modifier mot de passe"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/supprimer"
+        android:title="Supprimer"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/cancel"
+        android:title="Cancel"
+        app:showAsAction="never" />
+</menu>

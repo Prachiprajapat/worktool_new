@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="@dimen/_50dp" android:layout_marginTop="@dimen/_10dp">
+    <ImageView android:id="@+id/ivBack" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_15dp" android:src="@drawable/right_arrow" android:layout_centerVertical="true"/>
+    <TextView android:textSize="@dimen/_16sp" android:textStyle="bold" android:textColor="@color/colorBlack" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ADD MEMBERS" android:layout_centerInParent="true"/>
+    <TextView android:textSize="@dimen/_16sp" android:textStyle="bold" android:textColor="@color/colorPrimary" android:id="@+id/tvSave" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/_15dp" android:text="Save" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:layout_alignParentEnd="true"/>
+</RelativeLayout>

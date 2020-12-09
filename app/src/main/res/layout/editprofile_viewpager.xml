@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50dp"
+        android:background="@drawable/gradiant">
+
+        <ImageView
+            android:id="@+id/ivBackEditProfile"
+            android:layout_width="@dimen/_30dp"
+            android:layout_height="@dimen/_30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_15dp"
+            android:src="@drawable/arrow_white"
+            android:visibility="visible" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="EDIT PROFILE"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/_15sp"
+            android:text="SAVE"
+            android:textColor="@color/colorWhite"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_below="@+id/toolbar"
+        android:background="@drawable/gradiant"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/tab_layout_theme"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:tabGravity="fill"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/colorWhite"
+        app:tabTextColor="@color/colorWhite" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="@dimen/_70dp"
+        android:layout_height="@dimen/_70dp"
+        android:layout_below="@+id/tablayout"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_25dp"
+        android:src="@drawable/person_girl" />
+
+    <TextView
+        android:id="@+id/tv_download"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_avatar"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_8dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Download Your Avatar"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/_15sp" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/editprofile_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bt_savedata"
+        android:layout_below="@+id/tv_download"
+        android:layout_marginTop="@dimen/_10dp" />
+
+    <Button
+        android:id="@+id/bt_savedata"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/_10dp"
+        android:background="@color/colorPrimary"
+        android:text="Save my profile"
+        android:textColor="@color/colorWhite" />
+</RelativeLayout>

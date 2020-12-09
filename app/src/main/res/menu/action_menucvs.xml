@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <item android:icon="@drawable/lock_action" android:id="@+id/change_password" android:title="Change Password" app:showAsAction="never"/>
+    <item android:icon="@drawable/plus_action" android:id="@+id/import_cv" android:title="Import CV" app:showAsAction="never"/>
+    <item android:icon="@drawable/cross_red" android:id="@+id/delete" android:title="Delete Member" app:showAsAction="never"/>
+</menu>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <RelativeLayout
+            android:id="@+id/rlCommentToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="0.2"
+            android:background="@drawable/gradiant">
+
+            <ImageView
+                android:id="@+id/ivBackComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="eventDetailBackButton"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/_10dp"
+                android:src="@drawable/ic_backicon" />
+
+            <TextView
+                android:id="@+id/tvComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/_10dp"
+                android:text="EVENT DETAILS"
+                android:textColor="#fff"
+                android:textSize="@dimen/_18sp"
+                android:textStyle="bold"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/detailTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:text="Title"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="#000"/>
+
+            <ImageView
+                android:id="@+id/detailImageName"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:text="New Scheduled"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#000"/>
+            <TextView
+                android:id="@+id/detailDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginTop="5dp"
+                android:text="on 10/25/2020"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:text="Author"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#000"/>
+            <TextView
+                android:id="@+id/detailAuthor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginTop="5dp"
+                android:text="Mrs. Sonkar Rajni"
+                android:textSize="20sp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:text="Type"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#000"/>
+            <TextView
+                android:id="@+id/detailType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginTop="5dp"
+                android:text="neee"
+                android:textSize="20sp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:text="Summary"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#000"/>
+            <TextView
+                android:id="@+id/detailSummary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginTop="5dp"
+                android:text="hehdhddh"
+                android:textSize="20sp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:text="Description"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#000"/>
+            <TextView
+                android:id="@+id/detailDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginTop="5dp"
+                android:text="jehehehehe"
+                android:textSize="20sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:text="Attahement"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#000"/>
+            <TextView
+                android:id="@+id/detailAttachment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#009"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginTop="5dp"
+                android:text="attachment_file_name"
+                android:textSize="20sp"/>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

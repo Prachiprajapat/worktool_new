@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <RelativeLayout
+            android:id="@+id/rlCommentToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:background="@drawable/gradiant">
+
+            <ImageView
+                android:id="@+id/ivBackComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/_10dp"
+                android:src="@drawable/ic_backicon" />
+
+            <TextView
+                android:id="@+id/tvComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/_10dp"
+                android:text="@string/titleComment"
+                android:textColor="#333"
+                android:textSize="@dimen/_18sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlWallPost"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/_10dp"
+            android:layout_weight="0.3">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_25dp"
+                android:layout_marginLeft="@dimen/_25dp"
+                android:layout_marginTop="@dimen/_15dp"
+                android:background="@xml/progress"
+                android:visibility="gone" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/civWallProfile"
+                android:layout_width="@dimen/_55dp"
+                android:layout_height="@dimen/_55dp"
+                android:layout_marginStart="@dimen/_10dp"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:src="@drawable/profileplaceholder"
+                app:civ_border_color="@color/colorBlack"
+                app:civ_border_width="@dimen/_1dp" />
+
+            <TextView
+                android:id="@+id/tvWallPostName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5dp"
+                android:layout_toEndOf="@+id/civWallProfile"
+                android:layout_toRightOf="@+id/civWallProfile"
+                android:padding="@dimen/_5dp"
+                android:text=""
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_14sp" />
+
+            <TextView
+                android:id="@+id/tvWallPostDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvWallPostName"
+                android:layout_marginStart="@dimen/_5dp"
+                android:layout_marginLeft="@dimen/_5dp"
+                android:layout_marginEnd="@dimen/_5dp"
+                android:layout_marginRight="@dimen/_5dp"
+                android:layout_toEndOf="@+id/civWallProfile"
+                android:layout_toRightOf="@+id/civWallProfile"
+                android:paddingStart="@dimen/_5dp"
+                android:paddingLeft="@dimen/_5dp"
+                android:paddingEnd="@dimen/_5dp"
+                android:paddingRight="@dimen/_5dp"
+                android:text=""
+                android:textColor="#939090"
+                android:textSize="@dimen/_12sp" />
+
+            <TextView
+                android:id="@+id/tvWallTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/civWallProfile"
+                android:layout_marginStart="@dimen/_5dp"
+                android:layout_marginLeft="@dimen/_5dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginEnd="@dimen/_5dp"
+                android:layout_marginRight="@dimen/_5dp"
+                android:ellipsize="end"
+                android:maxLength="15"
+                android:maxLines="1"
+                android:paddingStart="@dimen/_5dp"
+                android:paddingLeft="@dimen/_5dp"
+                android:paddingEnd="@dimen/_5dp"
+                android:paddingRight="@dimen/_5dp"
+                android:text=""
+                android:textAlignment="viewStart"
+                android:textColor="#939090"
+                android:textSize="@dimen/_12sp" />
+
+            <TextView
+                android:id="@+id/tvWallEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/civWallProfile"
+                android:layout_marginStart="@dimen/_5dp"
+                android:layout_marginLeft="@dimen/_5dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginEnd="@dimen/_5dp"
+                android:layout_marginRight="@dimen/_5dp"
+                android:layout_toEndOf="@+id/tvWallTitle"
+                android:layout_toRightOf="@+id/tvWallTitle"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingStart="@dimen/_5dp"
+                android:paddingLeft="@dimen/_5dp"
+                android:paddingEnd="@dimen/_5dp"
+                android:paddingRight="@dimen/_5dp"
+                android:text=""
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_12sp" />
+
+            <TextView
+                android:id="@+id/tvWallDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvWallTitle"
+                android:layout_marginStart="@dimen/_5dp"
+                android:layout_marginLeft="@dimen/_5dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginEnd="@dimen/_5dp"
+                android:layout_marginRight="@dimen/_5dp"
+                android:paddingStart="@dimen/_5dp"
+                android:paddingLeft="@dimen/_5dp"
+                android:paddingEnd="@dimen/_5dp"
+                android:paddingRight="@dimen/_5dp"
+                android:text=""
+                android:textAlignment="viewStart"
+                android:textColor="#333"
+                android:textSize="@dimen/_12sp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.01"
+            android:background="#ffeff2f7" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/_5dp"
+            android:text="@string/titleComment"
+            android:textAlignment="center"
+            android:textColor="#000" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCommentList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4" />
+
+        <TextView
+            android:id="@+id/tvNoDataFound"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.4"
+            android:gravity="center"
+            android:text="@string/tvNoCommentFound"
+            android:textAlignment="center"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/rlPostComment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@+id/rvCommentList"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="0.2">
+
+            <View
+                android:id="@+id/vwComment"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_5dp"
+                android:background="#ffeff2f7" />
+
+            <com.chinalwb.are.AREditor
+                android:id="@+id/areditor"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50dp"
+                android:layout_below="@+id/vwComment"
+                android:layout_marginTop="@dimen/_5dp"
+                android:background="@color/colorPrimary"
+                app:expandMode="FULL"
+                app:hideToolbar="true"
+                app:toolbarAlignment="TOP"></com.chinalwb.are.AREditor>
+
+            <com.chinalwb.are.AREditText
+                android:id="@+id/edit_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/areditor"
+                android:layout_margin="@dimen/_10dp"
+                android:layout_toLeftOf="@+id/post_button"
+                android:background="@drawable/comment_bg"
+                android:hint="Leave your comment here"
+                android:padding="10dp"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/post_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/areditor"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="top"
+                android:layout_margin="@dimen/_10dp"
+                android:background="@drawable/button_style"
+                android:padding="8dp"
+                android:text="Post"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="@dimen/_12sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

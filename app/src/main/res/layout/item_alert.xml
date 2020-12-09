@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <androidx.cardview.widget.CardView android:background="@color/colorWhite" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/_10dp">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/_10dp">
+            <de.hdodenhof.circleimageview.CircleImageView android:id="@+id/profile_image2" android:layout_width="@dimen/_50dp" android:layout_height="@dimen/_50dp" android:layout_marginLeft="@dimen/_10dp" android:layout_marginTop="@dimen/_10dp" android:layout_marginBottom="@dimen/_10dp" android:src="@drawable/mailbox1" android:layout_centerVertical="true" app:civ_border_width="@dimen/_1dp"/>
+            <LinearLayout android:orientation="vertical" android:id="@+id/ll_linear2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_15dp" android:layout_toRightOf="@+id/profile_image2" android:layout_centerVertical="true">
+                <TextView android:textSize="@dimen/_15sp" android:textStyle="bold" android:textColor="@color/colorBlack" android:id="@+id/tvAlertSenderName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ragig Ondo"/>
+                <TextView android:textSize="@dimen/_16sp" android:textColor="@color/textGrey" android:id="@+id/tvAlertTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10dp" android:text="Ragig Ondo"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

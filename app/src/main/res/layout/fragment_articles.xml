@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:background="@drawable/gradiant" android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout android:orientation="vertical" android:background="@color/background" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/_20dp">
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_articles" android:padding="@dimen/_5dp" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@+id/llAddArticle" app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        <TextView android:textStyle="bold" android:textColor="@color/colorBlack" android:gravity="center" android:layout_gravity="center" android:id="@+id/tvNoDataFound" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:text="@string/tvNoDataFound" android:layout_above="@+id/llAddArticle" android:textAlignment="center"/>
+        <RelativeLayout android:id="@+id/llAddArticle" android:background="@color/colorPrimary" android:layout_width="match_parent" android:layout_height="@dimen/_50dp" android:layout_margin="@dimen/_10dp" android:layout_alignParentBottom="true">
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                <ImageView android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/add_white"/>
+                <TextView android:textColor="@color/colorWhite" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/_10dp" android:text="Add Article"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Beneficiary"
+            android:layout_margin="@dimen/_20dp"
+            android:textColor="#000"
+            android:textSize="@dimen/_25sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/beneficiaryEngagement"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"/>
+            <EditText
+                android:id="@+id/dateOfBeneficiary"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginRight="@dimen/_15dp"
+                android:background="@drawable/grey_stroke"
+                android:editable="false"
+                android:focusable="false"
+                android:hint="--/--/----"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Referant"
+            android:layout_margin="@dimen/_20dp"
+            android:textColor="#000"
+            android:textSize="@dimen/_25sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/_25sp">
+            <EditText
+                android:id="@+id/referantEngagement"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"/>
+            <EditText
+                android:id="@+id/dateOfReferent"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginRight="@dimen/_15dp"
+                android:background="@drawable/grey_stroke"
+                android:editable="false"
+                android:focusable="false"
+                android:hint="--/--/----"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

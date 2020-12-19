@@ -78,7 +78,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_15dp"
-                            android:text=""
+                            android:text="gautam"
                             android:textColor="@color/textGrey"
                             android:textSize="@dimen/_15sp" />
 
@@ -87,7 +87,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_15dp"
-                            android:text=""
+                            android:text="gautam@gmail.com"
                             android:textColor="@color/colorPrimary" />
                     </LinearLayout>
 
@@ -98,7 +98,7 @@
                         android:layout_marginLeft="@dimen/_15dp"
                         android:ellipsize="end"
                         android:maxLines="4"
-                        android:text=""
+                        android:text="heyy there"
                         android:textColor="@color/textGrey"
                         android:textSize="@dimen/_15sp" />
                 </LinearLayout>
@@ -134,6 +134,13 @@
                     android:layout_marginTop="@dimen/_15dp"
                     android:orientation="vertical"
                     android:visibility="gone">
+                    <TextView
+                        android:id="@+id/tvPostTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:layout_marginTop="@dimen/_15dp"
+                        android:textColor="#000"/>
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/civWallimage"
@@ -141,6 +148,7 @@
                         android:layout_height="@dimen/_80dp"
                         android:layout_gravity="center"
                         android:layout_marginBottom="@dimen/_15dp"
+                        android:layout_marginTop="@dimen/_15dp"
                         android:src="@drawable/placeholder"
                         app:civ_border_color="@color/colorWhite"
                         app:civ_border_width="@dimen/_2dp" />

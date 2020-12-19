@@ -59,7 +59,12 @@ public class Adapter_Members extends RecyclerView.Adapter<Adapter_Members.ViewHo
         TextView textView = holder.tvmemberName;
         textView.setText(this.datamodelArraylist.get(position).getPrenom() + " " + this.datamodelArraylist.get(position).getNom());
         TextView textView2 = holder.tvMemberType;
-        textView2.setText("[" + this.datamodelArraylist.get(position).getType() + "]");
+        if(this.datamodelArraylist.get(position).getType().toString().equals("jeune")) {
+            textView2.setText("[" + "Beneficiaire" + "]");
+        }
+        else{
+            textView2.setText("[" + this.datamodelArraylist.get(position).getType() + "]");
+        }
         if (this.datamodelArraylist.get(position).getImage() != null) {
             if (!this.datamodelArraylist.get(position).getImage().isEmpty()) {
                 Picasso.get().load(AppConstants.IMAGEURL + this.datamodelArraylist.get(position).getImage()).placeholder((int) R.drawable.profileplaceholder).error((int) R.drawable.profileplaceholder).into((ImageView) holder.iv_MemberImage);
@@ -174,7 +179,7 @@ public class Adapter_Members extends RecyclerView.Adapter<Adapter_Members.ViewHo
             }
         }));*/
     }
-    private void showPopUp(View v, ArrayList<MemberModel.Compte> datamodelArraylist, final int position) {
+    private void showPopUp(View v, final ArrayList<MemberModel.Compte> datamodelArraylist, final int position) {
         final PopupMenu popupMenu=new PopupMenu(context,v);
         if (((MemberModel.Compte) Adapter_Members.this.datamodelArraylist.get(position)).getType().equals("Beneficiaire") || ((MemberModel.Compte) Adapter_Members.this.datamodelArraylist.get(position)).getType().equals("jeune")) {
             popupMenu.getMenuInflater().inflate(R.menu.action_newmenu, popupMenu.getMenu());
@@ -190,7 +195,9 @@ public class Adapter_Members extends RecyclerView.Adapter<Adapter_Members.ViewHo
                         }
                         return true;
                     } else if (i == R.id.importercv) {
-                        Adapter_Members.this.context.startActivity(new Intent(context, ImportCv.class));
+                        Intent in = new Intent(context, ImportCv.class);
+                        in.putExtra("tid", datamodelArraylist.get(position).getIdCompte());
+                        Adapter_Members.this.context.startActivity(in);
                         return true;
                     } else if (i == R.id.editercv) {
                         Adapter_Members.this.context.startActivity(new Intent(context, EditSkills.class));

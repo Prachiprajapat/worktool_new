@@ -2,6 +2,7 @@ package com.example.worktool_new.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -171,6 +172,7 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
             }
             if (this.datamodelArraylist.get(position).getTitrePostuler() != null) {
                 holder.tvWallTitle.setText(this.datamodelArraylist.get(position).getTitrePostuler());
+                Log.i("title",this.datamodelArraylist.get(position).getTitrePostuler()+"");
             }
             if (this.datamodelArraylist.get(position).getTexte() != null) {
                 holder.tvWallDescription.setText(this.datamodelArraylist.get(position).getTexte());
@@ -254,6 +256,7 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
         TextView tvWallDescription;
         TextView tvWallFileName;
         TextView tvWallTitle;
+        TextView tvPostTitle;
 
         public ViewHolder(View itemView) {
             super(itemView);

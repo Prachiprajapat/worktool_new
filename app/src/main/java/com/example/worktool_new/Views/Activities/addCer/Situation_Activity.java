@@ -3,6 +3,7 @@ package com.example.worktool_new.Views.Activities.addCer;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -34,6 +35,7 @@ public class Situation_Activity extends AppCompatActivity {
         });
         this.etSituationActuelles = getIntent().getStringExtra("etSituationActuelles");
         final String memberId = getIntent().getStringExtra("memberId");
+        Log.i("memid5",getIntent().getStringExtra("memberId")+"");
         this.etSituationActuelle.setText(this.etSituationActuelles);
         this.tvNextMotifs.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

@@ -3,6 +3,7 @@ package com.example.worktool_new.Views.Activities.addCer;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -34,6 +35,7 @@ public class Duree_Activity extends AppCompatActivity {
         });
         String etDureeValidationDuContrats = getIntent().getStringExtra("etDureeValidationDuContrat");
         final String memberId = getIntent().getStringExtra("memberId");
+        Log.i("memid9",getIntent().getStringExtra("memberId")+"");
         this.etDureeValidationDuContrat.setText(etDureeValidationDuContrats);
         this.tvNext.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

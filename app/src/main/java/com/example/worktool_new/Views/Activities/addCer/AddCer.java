@@ -86,6 +86,7 @@ public class AddCer extends AppCompatActivity {
         this.signature = (LinearLayout) findViewById(R.id.ll_signature);
         String Id = getIntent().getStringExtra("MemberId");
         final String memberId2 = getIntent().getStringExtra("MemberId");
+        Log.i("mds",getIntent().getStringExtra("MemberId")+"");
         this.engagementList = new ArrayList<>();
         if (Id != null && !Id.isEmpty()) {
             getCERData(Id);
@@ -95,6 +96,7 @@ public class AddCer extends AppCompatActivity {
                 Intent intent = new Intent(AddCer.this, Cardonnes_Activity.class);
                 intent.putExtra("memberId", memberId2);
                 intent.putExtra("mds", AddCer.this.mds);
+                Log.i("mds",AddCer.this.mds+"");
                 intent.putExtra("ccas", AddCer.this.ccas);
                 intent.putExtra("association", AddCer.this.association);
                 AddCer.this.startActivity(intent);

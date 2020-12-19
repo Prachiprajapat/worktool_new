@@ -3,6 +3,7 @@ package com.example.worktool_new.Views.Activities.addCer;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -45,6 +46,7 @@ public class Atouts_Activity extends AppCompatActivity {
         String etEnvironmentSocials = getIntent().getStringExtra("etEnvironmentSocial");
         String etSituations = getIntent().getStringExtra("etSituation");
         final String memberId = getIntent().getStringExtra("memberId");
+        Log.i("memid3",getIntent().getStringExtra("memberId")+"");
         this.etSante.setText(etSantes);
         this.etMobLite.setText(etMobLites);
         this.etLogement.setText(etLogements);

@@ -133,31 +133,60 @@ public class Detail_Event extends AppCompatActivity {
         String DownloadUrl = AppConstants.IMAGEURL + file;
         String fileName = DownloadUrl.substring(DownloadUrl.lastIndexOf('/') + 1);
         String filename = fileName;
+        Log.i("download1", file);
+        Log.i("download1", DownloadUrl);
+        Log.i("download1", fileName);
         String downloadUrlOfImage = AppConstants.IMAGEURL + file;
-        File direct =
-                new File(Environment
-                        .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS)
-                        .getAbsolutePath() + "/" + "gautam" + "/");
 
-        if (!direct.exists()) {
-            direct.mkdir();
-            Log.i("", "dir created for first time");
-        }
+//        DownloadManager dm = (DownloadManager) this.getSystemService(Context.DOWNLOAD_SERVICE);
+//        Uri downloadUri = Uri.parse(downloadUrlOfImage);
+//        DownloadManager.Request request = new DownloadManager.Request(downloadUri);
+//        request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE)
+//                .setAllowedOverRoaming(false)
+//                .setTitle(filename)
+//                .setMimeType("application/pdf")
+//                .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+//                .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOCUMENTS,
+//                        File.separator + "gautam" + File.separator + filename);
+//
+//        dm.enqueue(request);
+//        Intent browserIntent = new Intent("android.intent.action.VIEW", Uri.parse(AppConstants.IMAGEURL + file));
+//        startActivity(browserIntent);
 
+        //String fileName=getName(uri);
         DownloadManager dm = (DownloadManager) this.getSystemService(Context.DOWNLOAD_SERVICE);
         Uri downloadUri = Uri.parse(downloadUrlOfImage);
         DownloadManager.Request request = new DownloadManager.Request(downloadUri);
-        request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE)
-                .setAllowedOverRoaming(false)
-                .setTitle(filename)
-                .setMimeType("application/pdf")
-                .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-                .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOCUMENTS,
-                        File.separator + "gautam" + File.separator + filename);
-
+        request.setTitle(fileName);
+        request.setNotificationVisibility(1);
+        request.allowScanningByMediaScanner();
+        request.setMimeType("application/pdf");
+        //Log.e("Extension with ","UpperCase-->"+"\""+fileName.split("\\.")[0]+"."+fileName.split("\\.")[1].toUpperCase()+"\"");
         dm.enqueue(request);
-        Intent browserIntent = new Intent("android.intent.action.VIEW", Uri.parse(AppConstants.IMAGEURL + file));
-        startActivity(browserIntent);
+
+        File pdfFile = new File(Environment.getExternalStorageDirectory(),file);//File path
+        if (pdfFile.exists()) //Checking if the file exists or not
+        {
+            Uri path = Uri.fromFile(pdfFile);
+            Intent objIntent = new Intent(Intent.ACTION_VIEW);
+            objIntent.setDataAndType(path, "application/pdf");
+            objIntent.setFlags(Intent. FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(objIntent);//Starting the pdf viewer
+        } else {
+
+            Toast.makeText(Detail_Event.this, "The file not exists! ", Toast.LENGTH_SHORT).show();
+
+        }
+
+//        File direct =
+//                new File(Environment
+//                        .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS)
+//                        .getAbsolutePath() + "/" + "gautam" + "/");
+//
+//        if (!direct.exists()) {
+//            direct.mkdir();
+//            Log.i("", "dir created for first time");
+//        }
 
     }
 }

@@ -15,7 +15,7 @@
     <item
         android:id="@+id/editercv"
         android:icon="@drawable/plus_action"
-        android:title="Editer CV "
+        android:title="Modify CV "
         app:showAsAction="never" />
     <item
         android:id="@+id/ajoutercer"

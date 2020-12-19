@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.ThumbnailUtils;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +16,8 @@ import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,6 +25,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.worktool_new.Adapters.AddSkillAdapter;
 import com.example.worktool_new.Adapters.ImportCvAdapter;
 import com.example.worktool_new.Models.AddSkillModel;
+import com.example.worktool_new.Models.JsonModel;
 import com.example.worktool_new.Models.getskills.CustomSkillModel;
 import com.example.worktool_new.Models.getskills.SkillBodyItem;
 import com.example.worktool_new.Models.getskills.SkillModel;
@@ -32,11 +36,20 @@ import com.example.worktool_new.Util.PermissionsUtil;
 import com.example.worktool_new.Util.SharedPreference.App;
 import com.example.worktool_new.Util.SharedPreference.AppConstants;
 import com.google.gson.Gson;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,13 +57,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ImportCv extends AppCompatActivity {
+public class ImportCv extends AppCompatActivity implements AddSkillAdapter.sendSkillData {
     private TextView addskill;
-    /* access modifiers changed from: private */
-    public File attachmentFile = null;
-    /* access modifiers changed from: private */
-    public String attachment_file_path = "";
-    private Button btnUploadFile;
+    private Button btnUploadFile, saveButton;
     private ArrayList<CustomSkillModel> datamodelArrayList;
     /* access modifiers changed from: private */
     public ImportCvAdapter importCvAdapter;
@@ -60,14 +69,19 @@ public class ImportCv extends AppCompatActivity {
     private RecyclerView rvImportcv;
     /* access modifiers changed from: private */
     public ArrayList<SkillBodyItem> skillModelArrayList;
-    private EditText inputTitle, inputSummary,inputLocation, inputSkill;
-    public ArrayList<AddSkillModel> skillList;
+    private EditText inputTitle, inputSummary, inputLocation, inputSkill;
+    public ArrayList<AddSkillModel> skillList = new ArrayList<>();
     public AddSkillAdapter cvAdapter;
+    public ArrayList<AddSkillModel> getSkillList = new ArrayList<>();
+    private Uri uri;
+    private String attach_file, title, summary, tid;
 
     /* access modifiers changed from: protected */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView((int) R.layout.activity_import_cv);
+
+        tid = getIntent().getStringExtra("tid");
         init();
     }
 
@@ -77,6 +91,7 @@ public class ImportCv extends AppCompatActivity {
         inputLocation = findViewById(R.id.cvLocation);
         inputSkill = findViewById(R.id.skillEditText);
         ratingBar = findViewById(R.id.ratingBar);
+        saveButton = findViewById(R.id.saveCvButton);
         this.addskill = findViewById(R.id.ll_addskill);
         this.btnUploadFile = (Button) findViewById(R.id.btnUploadFile);
         this.ivBack = (ImageView) findViewById(R.id.ivBack);
@@ -86,7 +101,8 @@ public class ImportCv extends AppCompatActivity {
                 ImportCv.this.onBackPressed();
             }
         });
-        this.btnUploadFile.setOnClickListener(new View.OnClickListener() {
+
+        /*this.btnUploadFile.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 PermissionsUtil.askPermissions(ImportCv.this, PermissionsUtil.CAMERA, PermissionsUtil.STORAGE, new PermissionsUtil.PermissionListener() {
                     public void onPermissionResult(boolean isGranted) {
@@ -116,7 +132,15 @@ public class ImportCv extends AppCompatActivity {
                     }
                 });
             }
+        });*/
+
+        this.btnUploadFile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fileIntent();
+            }
         });
+
         this.addskill.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String skill = inputSkill.getText().toString();
@@ -126,19 +150,99 @@ public class ImportCv extends AppCompatActivity {
                 ratingBar.setRating(0);
             }
         });
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveCv();
+            }
+        });
     }
 
+    private void fileIntent() {
+        Intent intent = new Intent();
+        intent.setType("*/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select PDF"), 11);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 11) {
+            this.btnUploadFile.setText(data.getDataString());
+            uri = data.getData();
+            attach_file = data.getData().toString();
+        }
+    }
+
+    private void saveCv() {
+        if (inputTitle.getText().toString().equals(""))
+            Toast.makeText(this, "Please enter the title", Toast.LENGTH_SHORT).show();
+        else if (inputLocation.getText().toString().equals(""))
+            Toast.makeText(this, "Please enter the location", Toast.LENGTH_SHORT).show();
+        else if (inputSummary.getText().toString().equals(""))
+            Toast.makeText(this, "Please enter the summary", Toast.LENGTH_SHORT).show();
+        else {
+            title = inputTitle.getText().toString();
+            summary = inputSummary.getText().toString();
+            String location = inputLocation.getText().toString();
+            MultipartBody.Part attachedfile = null;
+            if (this.attach_file != null) {
+                File file2 = new File(AppConstants.IMAGEURL + this.attach_file);
+                Log.i("cvPdfFile", "" + file2);
+                Log.i("cvPdfName", "" + file2.getName());
+                Log.i("cvPdfPath", "" + file2.getPath());
+                attachedfile = MultipartBody.Part.createFormData("file", file2.getName(), RequestBody.create(MediaType.parse("application/pdf"), file2.getPath()));
+            }
+            for (int i = 0; i < getSkillList.size(); i++) {
+                String skill = getSkillList.get(i).getSkillName();
+                String rating = getSkillList.get(i).getSkillRating().toString();
+                final JsonModel jsonModel = new JsonModel();
+                //jsonModel.setCompetence_id(selectedItem.getId());
+                jsonModel.setCompetence(skill);
+                jsonModel.setLevel(rating);
+                //jsonModel.setCompetence_type(selectedItem.getType());
+            }
+            // api call to send data
+            RequestBody title1 = RequestBody.create(MediaType.parse("text/plain"), title);
+            RequestBody summary2 = RequestBody.create(MediaType.parse("text/plain"), summary);
+            RequestBody id = RequestBody.create(MediaType.parse("text/plain"), App.getAppPreference().getString("LoginId"));
+            Retrofit retrofit = new Retrofit.Builder().baseUrl("http://devworktools.fr/contenu/conseiller/").addConverterFactory(GsonConverterFactory.create()).build();
+            ((Apis) retrofit.create(Apis.class)).ImportCv(title1, summary2, id, attachedfile).enqueue(new Callback<ResponseBody>() {
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    if (response.isSuccessful()) {
+                        ImportCv.this.dismissLoadingDialog();
+                        Toast.makeText(ImportCv.this, "sucesss", 0).show();
+                        finish();
+                    }
+                    ImportCv.this.dismissLoadingDialog();
+                    Toast.makeText(ImportCv.this, "failed", 0).show();
+                    finish();
+                }
+
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    ImportCv.this.dismissLoadingDialog();
+                    Toast.makeText(ImportCv.this, t.getMessage(), 0).show();
+                    Log.i("throw", t.getMessage());
+                }
+            });
+            dismissLoadingDialog();
+            ImportCv.this.finish();
+        }
+    }
+
+    // add skill to recycler view
     private void addToView(String skill, Float rating) {
         AddSkillModel model = new AddSkillModel(skill, rating);
-        skillList = new ArrayList<>();
         skillList.add(model);
-        cvAdapter = new AddSkillAdapter(ImportCv.this, skillList);
+        cvAdapter = new AddSkillAdapter(ImportCv.this, skillList, ImportCv.this);
         Log.i("ratibgList", "" + skillList.toString());
-        rvImportcv.setLayoutManager(new LinearLayoutManager(ImportCv.this,1, false));
+        rvImportcv.setLayoutManager(new LinearLayoutManager(ImportCv.this, 1, false));
         rvImportcv.setAdapter(cvAdapter);
     }
 
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+    /*public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         PermissionsUtil.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
@@ -150,7 +254,7 @@ public class ImportCv extends AppCompatActivity {
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.setType("/");
         context.startActivityForResult(Intent.createChooser(intent, "Select File"), 30000);
-    }
+    }*/
 
     public void showLoadingDialog() {
         if (this.progress == null) {
@@ -178,7 +282,7 @@ public class ImportCv extends AppCompatActivity {
         });
     }
 
-    public void ontextChanged(int postion, ArrayList<CustomSkillModel> dataModellist, String text) {
+    /*public void ontextChanged(int postion, ArrayList<CustomSkillModel> dataModellist, String text) {
         getskilllist(postion, dataModellist, text);
     }
 
@@ -218,10 +322,16 @@ public class ImportCv extends AppCompatActivity {
                 Toast.makeText(ImportCv.this, t.getMessage().toString(), 0).show();
             }
         });
-    }
+    }*/
 
     public void onBackPressed() {
         super.onBackPressed();
         finish();
+    }
+
+    @Override
+    public void sendSkill(ArrayList<AddSkillModel> sendSkillList) {
+        Log.i("cvList", sendSkillList.toString());
+        this.getSkillList = sendSkillList;
     }
 }

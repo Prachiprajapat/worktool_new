@@ -3,6 +3,7 @@ package com.example.worktool_new.Views.Activities.addCer;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -37,6 +38,7 @@ public class Decisions_Activity extends AppCompatActivity {
         String etContratAjournePours = getIntent().getStringExtra("etContratAjournePour");
         String etPrenocisationss = getIntent().getStringExtra("etPrenocisations");
         final String memberId = getIntent().getStringExtra("memberId");
+        Log.i("memid8",getIntent().getStringExtra("memberId")+"");
         this.etContratValue.setText(etContratValues);
         this.etContratAjournePour.setText(etContratAjournePours);
         this.etPrenocisations.setText(etPrenocisationss);

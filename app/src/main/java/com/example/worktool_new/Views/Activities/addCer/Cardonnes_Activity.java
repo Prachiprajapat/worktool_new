@@ -3,6 +3,7 @@ package com.example.worktool_new.Views.Activities.addCer;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -36,6 +37,7 @@ public class Cardonnes_Activity extends AppCompatActivity {
             }
         });
         String mds = getIntent().getStringExtra("mds");
+        Log.i("mds",getIntent().getStringExtra("mds")+"");
         String ccas = getIntent().getStringExtra("ccas");
         String association = getIntent().getStringExtra("association");
         final String memberId = getIntent().getStringExtra("memberId");

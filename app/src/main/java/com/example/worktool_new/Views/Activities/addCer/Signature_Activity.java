@@ -352,8 +352,8 @@ public class Signature_Activity extends AppCompatActivity {
         String str2 = etccas;
         addCerModel.setContrat(this.etNumeroDuContrat.getText().toString().trim());
         this.arrayList = new ArrayList<>();
-        new ArrayList();
         ArrayList<GetEngagementModel.Datum> datumArrayList = App.getAppPreference().getEngagementArrayList();
+        Log.i("arraylist",App.getAppPreference().getEngagementArrayList()+"");
         String str3 = etAssociation;
         int i = 0;
         while (true) {

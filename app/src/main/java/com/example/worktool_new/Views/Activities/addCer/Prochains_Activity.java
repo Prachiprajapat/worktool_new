@@ -3,6 +3,7 @@ package com.example.worktool_new.Views.Activities.addCer;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -33,6 +34,7 @@ public class Prochains_Activity extends AppCompatActivity {
         });
         String etprochainBeneficiarys = getIntent().getStringExtra("etprochainBeneficiary");
         final String memberId = getIntent().getStringExtra("memberId");
+        Log.i("memid7",getIntent().getStringExtra("memberId")+"");
         this.etprochainBeneficiary.setText(etprochainBeneficiarys);
         this.tvNext.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

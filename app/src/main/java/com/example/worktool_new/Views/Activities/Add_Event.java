@@ -374,7 +374,7 @@ public class Add_Event extends AppCompatActivity implements View.OnClickListener
         showLoadingDialog();
         MultipartBody.Part uploadedphoto = null;
         RequestBody filesavedid = null;
-        if (this.attach_file != null) {
+        /*if (this.attach_file != null) {
             File file2 = new File(Uri.parse(this.attach_file).getPath());
             uploadedphoto = MultipartBody.Part.createFormData("fichier", file2.getName(), RequestBody.create(MediaType.parse("image/jpeg"), file2));
         }
@@ -382,6 +382,22 @@ public class Add_Event extends AppCompatActivity implements View.OnClickListener
             //Log.i("intentImage",img);
             filesavedid = RequestBody.create(MediaType.parse("text/plain"),this.eventlist.get(this.position).getIdFichier());
             Log.i("intentImage2",img);
+        }*/
+        if (this.attach_file != null) {
+//                File file2 = new File(Uri.parse(this.attach_file).getPath());
+            // String extension = file2.getName().substring(file2.getName().lastIndexOf("."));
+            if (fileType.equals("png") || fileType.equals("jpeg")) {
+                File file2 = new File(Uri.parse(this.attach_file).getPath());
+                uploadedphoto = MultipartBody.Part.createFormData("fichier", file2.getName(), RequestBody.create(MediaType.parse("image/jpeg"), file2));
+            } else if (fileType.equals("pdf")) {
+                File file2 = new File(AppConstants.IMAGEURL + this.attach_file);
+                Log.i("pdffile",""+file2);
+                Log.i("Pdfname",""+file2.getName());
+                Log.i("Pdfpath",""+file2.getPath());
+                uploadedphoto = MultipartBody.Part.createFormData("fichier", file2.getName(), RequestBody.create(MediaType.parse("application/pdf"), file2.getPath()));
+            } else {
+                filesavedid = RequestBody.create(MediaType.parse("text/plain"),this.eventlist.get(this.position).getIdFichier());
+            }
         }
         RequestBody eventid = RequestBody.create(MediaType.parse("text/plain"), this.eventlist.get(this.position).getIdEvent());
         RequestBody id2 = RequestBody.create(MediaType.parse("text/plain"), App.getAppPreference().getString("LoginId"));
@@ -528,7 +544,7 @@ public class Add_Event extends AppCompatActivity implements View.OnClickListener
 
     public void pdfIntent(){
         Intent intent = new Intent();
-        intent.setType("application/pdf");
+        intent.setType("*/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Select PDF"), 11);
     }
@@ -557,7 +573,7 @@ public class Add_Event extends AppCompatActivity implements View.OnClickListener
                     if (this.isattach.booleanValue()) {
                         this.tv_attachfile.setText(this.imageUri);
                         fileType = "png";
-                        Log.i("datafile",imageUri);
+                        Log.i("datafile",result.toString() + "\n" + result.getOriginalUri() + "\n" + result.getUri());
                         this.isattach = false;
                         this.attach_file = this.imageUri;
                     } else {
@@ -565,15 +581,23 @@ public class Add_Event extends AppCompatActivity implements View.OnClickListener
                         this.upload_photo = this.imageUri;
                         this.ismageEdited = true;
                     }
-                    PrintStream printStream = System.out;
-                    printStream.println("dkadskad" + this.imageUri);
                 }
             } else if (requestCode == 11){
                 this.tv_attachfilepdf.setText(data.getDataString());
                 fileType = "pdf";
-                Log.i("datafile", data.getData().toString());
-                uri = data.getData();
+
+                String filePath = data.getData().getPath();
+                String fileName = data.getData().getLastPathSegment();
+                this.attach_file = data.getData().getPath();
+                Log.i("file", filePath + "\n" + fileName  + "\n" + attach_file);
+
+                /*uri = data.getData();
                 this.attach_file = data.getData().toString();
+                Log.i("uriii", uri.toString());
+                File file2 = new File(this.attach_file);
+                Log.i("uriiName", file2.getName());
+                Log.i("uriiPath", file2.getPath());
+                Log.i("uriiParent", file2.getParent());*/
             }
         }
     }

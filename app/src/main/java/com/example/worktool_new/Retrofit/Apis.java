@@ -68,6 +68,10 @@ public interface Apis {
     @Multipart
     Call<ResponseBody> EditEvent(@Part("id") RequestBody requestBody, @Part("idCompteAuteur") RequestBody requestBody2, @Part("statut") RequestBody requestBody3, @Part("date") RequestBody requestBody4, @Part("resume") RequestBody requestBody5, @Part("titre") RequestBody requestBody6, @Part("rubrique") RequestBody requestBody7, @Part("filesavedid") RequestBody requestBody8, @Part("description") RequestBody requestBody9, @Part MultipartBody.Part part);
 
+    @POST("post_importcvfile.php")
+    @Multipart
+    Call<ResponseBody> ImportCv(@Part("title") RequestBody requestBody, @Part("summary") RequestBody requestBody2, @Part("id") RequestBody requestBody3,@Part MultipartBody.Part part);
+
     @POST("post_editevent.php")
     @Multipart
     Call<ResponseBody> EditEventWithoutImage(@Part("id") RequestBody requestBody, @Part("idCompteAuteur") RequestBody requestBody2, @Part("statut") RequestBody requestBody3, @Part("date") RequestBody requestBody4, @Part("resume") RequestBody requestBody5, @Part("titre") RequestBody requestBody6, @Part("rubrique") RequestBody requestBody7, @Part("filesavedid") RequestBody requestBody8, @Part("description") RequestBody requestBody9);

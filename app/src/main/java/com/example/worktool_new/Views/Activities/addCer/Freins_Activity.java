@@ -3,6 +3,7 @@ package com.example.worktool_new.Views.Activities.addCer;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -40,6 +41,7 @@ public class Freins_Activity extends AppCompatActivity {
         String etEnvironmentSocialsFreins = getIntent().getStringExtra("etEnvironmentSocialFreins");
         String etSituationsFreins = getIntent().getStringExtra("etSituationFreins");
         final String memberId = getIntent().getStringExtra("memberId");
+        Log.i("memid4",getIntent().getStringExtra("memberId")+"");
         this.etSante.setText(etSantesFreins);
         this.etMobLite.setText(etMobLitesFreins);
         this.etLogement.setText(etLogementsFreins);
@@ -57,7 +59,7 @@ public class Freins_Activity extends AppCompatActivity {
                 AllSharedPref.save((Context) freins_Activity4, "etEnvironmentSocialFreins", freins_Activity4.etEnvironmentSocial.getText().toString());
                 Freins_Activity freins_Activity5 = Freins_Activity.this;
                 AllSharedPref.save((Context) freins_Activity5, "etSituationFreins", freins_Activity5.etSituation.getText().toString());
-                Intent intent = new Intent(Freins_Activity.this, Freins_Activity.class);
+                Intent intent = new Intent(Freins_Activity.this, Situation_Activity.class);
                 intent.putExtra("memberId", memberId);
                 Freins_Activity.this.startActivity(intent);
             }

@@ -21,6 +21,8 @@ import com.example.worktool_new.R;
 import com.example.worktool_new.Retrofit.Apis;
 import com.example.worktool_new.Util.SharedPreference.App;
 import com.example.worktool_new.Util.Validations;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.theartofdev.edmodo.cropper.CropImage;
 import de.hdodenhof.circleimageview.CircleImageView;
 import java.io.File;
@@ -167,7 +169,10 @@ public class WallPost extends AppCompatActivity {
             Log.e("WORK",""+this.ed_messsage.getHtml().trim());
             RequestBody email = RequestBody.create(MediaType.parse("text/plain"), this.ed_email.getText().toString().trim());
             showLoadingDialog();
-            ((Apis) new Retrofit.Builder().baseUrl("http://devworktools.fr/contenu/conseiller/").addConverterFactory(GsonConverterFactory.create()).client(new OkHttpClient.Builder().addInterceptor(provideHttpLoggingInterceptor()).readTimeout(120, TimeUnit.SECONDS).writeTimeout(120, TimeUnit.SECONDS).build()).build().create(Apis.class)).postwall(id, message, email, title, ImagePic).enqueue(new Callback<DeleteEventModel>() {
+            Gson gson = new GsonBuilder()
+                    .setLenient()
+                    .create();
+            ((Apis) new Retrofit.Builder().baseUrl("http://devworktools.fr/contenu/conseiller/").addConverterFactory(GsonConverterFactory.create(gson)).client(new OkHttpClient.Builder().addInterceptor(provideHttpLoggingInterceptor()).readTimeout(120, TimeUnit.SECONDS).writeTimeout(120, TimeUnit.SECONDS).build()).build().create(Apis.class)).postwall(id, message, email, title, ImagePic).enqueue(new Callback<DeleteEventModel>() {
                 public void onResponse(Call<DeleteEventModel> call, Response<DeleteEventModel> response) {
                     if (!response.isSuccessful() || response.body().getStatusCode().intValue() != 200) {
                         WallPost.this.dismissLoadingDialog();
@@ -181,7 +186,8 @@ public class WallPost extends AppCompatActivity {
 
                 public void onFailure(Call<DeleteEventModel> call, Throwable t) {
                     WallPost.this.dismissLoadingDialog();
-                    Toast.makeText(WallPost.this, t.getMessage().toString(), 0).show();
+                    Log.i("wallpostthrowable",""+t);
+                    //Toast.makeText(WallPost.this, t.getMessage().toString(), 0).show();
                 }
             });
             return;
@@ -210,7 +216,10 @@ public class WallPost extends AppCompatActivity {
             RequestBody id = RequestBody.create(MediaType.parse("text/plain"), App.getAppPreference().getString("LoginId"));
             RequestBody message = RequestBody.create(MediaType.parse("text/plain"), this.ed_messsage.getHtml().trim());
             showLoadingDialog();
-            ((Apis) new Retrofit.Builder().baseUrl("http://devworktools.fr/contenu/conseiller/").addConverterFactory(GsonConverterFactory.create()).build().create(Apis.class)).postwallpro(id, message, ImagePic).enqueue(new Callback<DeleteEventModel>() {
+            Gson gson = new GsonBuilder()
+                    .setLenient()
+                    .create();
+            ((Apis) new Retrofit.Builder().baseUrl("http://devworktools.fr/contenu/conseiller/").addConverterFactory(GsonConverterFactory.create(gson)).build().create(Apis.class)).postwallpro(id, message, ImagePic).enqueue(new Callback<DeleteEventModel>() {
                 public void onResponse(Call<DeleteEventModel> call, Response<DeleteEventModel> response) {
                     if (!response.isSuccessful() || response.body().getStatusCode().intValue() != 200) {
                         WallPost.this.dismissLoadingDialog();

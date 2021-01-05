@@ -124,7 +124,7 @@ public class Adapter_wallpro extends RecyclerView.Adapter<Adapter_wallpro.ViewHo
             return;
         }
         if (this.datamodelArraylist.get(position).getFiletype().equals("image")) {
-            holder.llText.setVisibility(8);
+            holder.llText.setVisibility(0);
             holder.llFile.setVisibility(8);
             holder.llImage.setVisibility(0);
             holder.llVideo.setVisibility(8);
@@ -143,8 +143,14 @@ public class Adapter_wallpro extends RecyclerView.Adapter<Adapter_wallpro.ViewHo
             } else {
                 holder.civWallimage.setImageResource(R.drawable.profileplaceholder);
             }
+            if (!this.datamodelArraylist.get(position).getEmail().isEmpty()) {
+                holder.tvEmail.setText(this.datamodelArraylist.get(position).getEmail());
+            }
+            if (this.datamodelArraylist.get(position).getTexte() != null) {
+                holder.tvWallDescription.setText(Html.fromHtml(String.valueOf(HtmlCompat.fromHtml(this.datamodelArraylist.get(position).getTexte(), 63))));
+            }
         } else if (this.datamodelArraylist.get(position).getFiletype().equals("video")) {
-            holder.llText.setVisibility(8);
+            holder.llText.setVisibility(0);
             holder.llFile.setVisibility(8);
             holder.llImage.setVisibility(8);
             holder.llVideo.setVisibility(0);
@@ -154,13 +160,25 @@ public class Adapter_wallpro extends RecyclerView.Adapter<Adapter_wallpro.ViewHo
             } else {
                 holder.civWallThumbnail.setImageResource(R.drawable.profileplaceholder);
             }
+            if (!this.datamodelArraylist.get(position).getEmail().isEmpty()) {
+                holder.tvEmail.setText(this.datamodelArraylist.get(position).getEmail());
+            }
+            if (this.datamodelArraylist.get(position).getTexte() != null) {
+                holder.tvWallDescription.setText(Html.fromHtml(String.valueOf(HtmlCompat.fromHtml(this.datamodelArraylist.get(position).getTexte(), 63))));
+            }
         } else if (this.datamodelArraylist.get(position).getFiletype().equals("document")) {
-            holder.llText.setVisibility(8);
+            holder.llText.setVisibility(0);
             holder.llFile.setVisibility(0);
             holder.llImage.setVisibility(8);
             holder.llVideo.setVisibility(8);
             if (this.datamodelArraylist.get(position).getFile() != null) {
                 holder.tvWallFileName.setText(this.datamodelArraylist.get(position).getFile().toString());
+            }
+            if (!this.datamodelArraylist.get(position).getEmail().isEmpty()) {
+                holder.tvEmail.setText(this.datamodelArraylist.get(position).getEmail());
+            }
+            if (this.datamodelArraylist.get(position).getTexte() != null) {
+                holder.tvWallDescription.setText(Html.fromHtml(String.valueOf(HtmlCompat.fromHtml(this.datamodelArraylist.get(position).getTexte(), 63))));
             }
         } else {
             holder.llText.setVisibility(0);

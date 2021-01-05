@@ -172,7 +172,7 @@ public class WallPost extends AppCompatActivity {
             Gson gson = new GsonBuilder()
                     .setLenient()
                     .create();
-            ((Apis) new Retrofit.Builder().baseUrl("http://devworktools.fr/contenu/conseiller/").addConverterFactory(GsonConverterFactory.create(gson)).client(new OkHttpClient.Builder().addInterceptor(provideHttpLoggingInterceptor()).readTimeout(120, TimeUnit.SECONDS).writeTimeout(120, TimeUnit.SECONDS).build()).build().create(Apis.class)).postwall(id, message, email, title, ImagePic).enqueue(new Callback<DeleteEventModel>() {
+            ((Apis) new Retrofit.Builder().baseUrl("http://devworktools.fr/contenu/conseiller/").addConverterFactory(GsonConverterFactory.create(gson)).client(new OkHttpClient.Builder().addInterceptor(provideHttpLoggingInterceptor()).readTimeout(120, TimeUnit.SECONDS).writeTimeout(120, TimeUnit.SECONDS).build()).build().create(Apis.class)).postwall(id, message, email,title, ImagePic).enqueue(new Callback<DeleteEventModel>() {
                 public void onResponse(Call<DeleteEventModel> call, Response<DeleteEventModel> response) {
                     if (!response.isSuccessful() || response.body().getStatusCode().intValue() != 200) {
                         WallPost.this.dismissLoadingDialog();

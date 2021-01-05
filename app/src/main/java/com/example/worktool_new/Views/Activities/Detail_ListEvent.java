@@ -60,7 +60,7 @@ public class Detail_ListEvent extends AppCompatActivity {
     private void checkIntent() {
         Intent intent2 = getIntent();
         String getInt = intent2.getStringExtra("activity");
-        if (getInt.equals("detail")) {
+        if (getInt.equals("eventList")) {
             this.position = intent2.getIntExtra("position", 0);
             this.eventlist1 = (ArrayList) intent2.getSerializableExtra("eventlist");
             Gson gson = new Gson();
@@ -78,7 +78,7 @@ public class Detail_ListEvent extends AppCompatActivity {
                 }
             });
             Picasso picasso = Picasso.get();
-            picasso.load(AppConstants.IMAGEURL + this.eventlist1.get(this.position).getFile()).placeholder((int) R.drawable.profileplaceholder).error((int) R.drawable.profileplaceholder).into(this.eventImage);
+            picasso.load(AppConstants.IMAGEURL + this.eventlist1.get(this.position).getEventphotofile()).placeholder((int) R.drawable.profileplaceholder).error((int) R.drawable.profileplaceholder).into(this.eventImage);
             String[] dateTime = this.eventlist1.get(position).getDate().split(" ");
             if (dateTime.length == 2 ) {
                 this.date.setText("on " + dateTime[0]);

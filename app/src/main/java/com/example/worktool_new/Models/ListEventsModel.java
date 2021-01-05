@@ -112,6 +112,18 @@ public class ListEventsModel implements Serializable {
         public Datum() {
         }
 
+        @SerializedName("eventphotofile")
+        @Expose
+        private String eventphotofile;
+
+        public String getEventphotofile() {
+            return eventphotofile;
+        }
+
+        public void setEventphotofile(String eventphotofile) {
+            this.eventphotofile = eventphotofile;
+        }
+
         public String getIdEvent() {
             return this.idEvent;
         }

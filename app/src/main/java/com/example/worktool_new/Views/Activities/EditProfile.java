@@ -61,6 +61,7 @@ public class EditProfile extends AppCompatActivity {
     EditText email;
     File finalpath;
     EditText firstname;
+    String DOB;
     private String fromCamera = "";
     File imageFile;
     String imageUri;
@@ -91,6 +92,7 @@ public class EditProfile extends AppCompatActivity {
     View vw_contact_card;
     View vw_contact_info;
     View vw_profile_info;
+    private boolean isDateSelect = false;
 
     /* access modifiers changed from: protected */
     public void onCreate(Bundle savedInstanceState) {
@@ -272,6 +274,7 @@ public class EditProfile extends AppCompatActivity {
         this.date_of_birth.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 EditProfile editProfile = EditProfile.this;
+                isDateSelect = true;
                 new DatePickerDialog(editProfile, editProfile.date, EditProfile.this.myCalendar.get(1), EditProfile.this.myCalendar.get(2), EditProfile.this.myCalendar.get(5)).show();
             }
         });
@@ -309,17 +312,23 @@ public class EditProfile extends AppCompatActivity {
         RequestBody create = RequestBody.create(MediaType.parse("text/plain"), this.city.getText().toString());
         RequestBody civ = RequestBody.create(MediaType.parse("text/plain"), this.spinner_civility.getSelectedItem().toString());
         RequestBody requestBody = id;
+        RequestBody dateOfBirth = null;
+        if (isDateSelect){
+            dateOfBirth = RequestBody.create(MediaType.parse("text/plain"), this.date_of_birth.getText().toString());
+        }
+        else {
+            dateOfBirth = RequestBody.create(MediaType.parse("text/plain"), DOB);
+            Log.i("dateofbirth",DOB);
+        }
         RequestBody pass = RequestBody.create(MediaType.parse("text/plain"), this.tv_new_password.getText().toString());
         RequestBody requestBody2 = pass;
-        RequestBody requestBody3 = pass;
         RequestBody passconf = RequestBody.create(MediaType.parse("text/plain"), this.tv_new_password.getText().toString());
-        RequestBody requestBody4 = passconf;
         RequestBody mail = RequestBody.create(MediaType.parse("text/plain"), this.email.getText().toString());
         RequestBody ville = RequestBody.create(MediaType.parse("text/plain"), this.city.getText().toString());
         showLoadingDialog();
         RequestBody requestBody5 = mail;
         Apis apis = (Apis) new Retrofit.Builder().baseUrl("http://devworktools.fr/contenu/conseiller/").addConverterFactory(GsonConverterFactory.create()).build().create(Apis.class);
-        apis.postProfileData(id, RequestBody.create(MediaType.parse("text/plain"), this.desc.getText().toString()), ville, RequestBody.create(MediaType.parse("text/plain"), this.postal_code.getText().toString()), RequestBody.create(MediaType.parse("text/plain"), this.address.getText().toString()), RequestBody.create(MediaType.parse("text/plain"), this.phone.getText().toString()), RequestBody.create(MediaType.parse("text/plain"), this.phoneport.getText().toString()), RequestBody.create(MediaType.parse("text/plain"), this.date_of_birth.getText().toString()), civ, RequestBody.create(MediaType.parse("text/plain"), this.lastname.getText().toString()), RequestBody.create(MediaType.parse("text/plain"), this.firstname.getText().toString()), mail, requestBody2, passconf, RequestBody.create(MediaType.parse("text/plain"), ""), ImagePic).enqueue(new Callback<PostProfileModel>() {
+        apis.postProfileData(id, RequestBody.create(MediaType.parse("text/plain"), this.desc.getText().toString()), ville, RequestBody.create(MediaType.parse("text/plain"), this.postal_code.getText().toString()), RequestBody.create(MediaType.parse("text/plain"), this.address.getText().toString()), RequestBody.create(MediaType.parse("text/plain"), this.phone.getText().toString()), RequestBody.create(MediaType.parse("text/plain"), this.phoneport.getText().toString()), dateOfBirth, civ, RequestBody.create(MediaType.parse("text/plain"), this.lastname.getText().toString()), RequestBody.create(MediaType.parse("text/plain"), this.firstname.getText().toString()), mail, requestBody2, passconf, RequestBody.create(MediaType.parse("text/plain"), ""), ImagePic).enqueue(new Callback<PostProfileModel>() {
             public void onResponse(Call<PostProfileModel> call, Response<PostProfileModel> response) {
                 if (response.isSuccessful()) {
                     EditProfile.this.dismissLoadingDialog();
@@ -398,7 +407,7 @@ public class EditProfile extends AppCompatActivity {
                     if (response.body().getData().getAdresse() != null) {
                         EditProfile.this.address.setText(response.body().getData().getAdresse());
                     }
-                    String DOB = response.body().getData().getDate();
+                    DOB = response.body().getData().getDate();
                     if (DOB != null) {
                         String[] words = DOB.split("-");
                         EditProfile.this.getAge(Integer.parseInt(words[0]), Integer.parseInt(words[1]), Integer.parseInt(words[2]));

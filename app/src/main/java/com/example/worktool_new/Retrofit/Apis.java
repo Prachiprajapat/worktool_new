@@ -228,7 +228,7 @@ public interface Apis {
 
     @POST("postwall.php")
     @Multipart
-    Call<DeleteEventModel> postwall(@Part("idCompte") RequestBody requestBody, @Part("wallmessage") RequestBody requestBody2, @Part("email") RequestBody requestBody3, @Part("title") RequestBody requestBody4, @Part MultipartBody.Part part);
+    Call<DeleteEventModel> postwall(@Part("idCompte") RequestBody requestBody, @Part("wallmessage") RequestBody requestBody2, @Part("email") RequestBody requestBody3,@Part("title") RequestBody requestBody4, @Part MultipartBody.Part part);
 
     @POST("postwallpro.php")
     @Multipart

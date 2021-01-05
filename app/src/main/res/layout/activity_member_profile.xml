@@ -133,6 +133,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_15dp"
                 android:layout_marginTop="@dimen/_15dp"
+                android:layout_marginBottom="@dimen/_15dp"
                 android:layout_marginRight="@dimen/_15dp">
 
                 <ImageView
@@ -179,88 +180,88 @@
                 </LinearLayout>
             </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_15dp"
-                android:layout_marginTop="@dimen/_15dp"
-                android:layout_marginRight="@dimen/_15dp">
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_15dp"-->
+<!--                android:layout_marginTop="@dimen/_15dp"-->
+<!--                android:layout_marginRight="@dimen/_15dp">-->
 
-                <ImageView
-                    android:id="@+id/postal"
-                    android:layout_width="@dimen/_25dp"
-                    android:layout_height="@dimen/_25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/postal3" />
+<!--                <ImageView-->
+<!--                    android:id="@+id/postal"-->
+<!--                    android:layout_width="@dimen/_25dp"-->
+<!--                    android:layout_height="@dimen/_25dp"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:src="@drawable/postal3" />-->
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_25dp"
-                    android:layout_toRightOf="@+id/postal"
-                    android:orientation="vertical">
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="@dimen/_25dp"-->
+<!--                    android:layout_toRightOf="@+id/postal"-->
+<!--                    android:orientation="vertical">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Postal Code"
-                        android:textColor="@color/textGrey"
-                        android:textSize="@dimen/_16sp"
-                        android:textStyle="bold" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Postal Code"-->
+<!--                        android:textColor="@color/textGrey"-->
+<!--                        android:textSize="@dimen/_16sp"-->
+<!--                        android:textStyle="bold" />-->
 
-                    <TextView
-                        android:id="@+id/tvMemberProfilePostalCode"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10dp"
-                        android:text="93000"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/_16sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </RelativeLayout>
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvMemberProfilePostalCode"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="@dimen/_10dp"-->
+<!--                        android:text="93000"-->
+<!--                        android:textColor="@color/colorBlack"-->
+<!--                        android:textSize="@dimen/_16sp"-->
+<!--                        android:textStyle="bold" />-->
+<!--                </LinearLayout>-->
+<!--            </RelativeLayout>-->
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_15dp"
-                android:layout_marginTop="@dimen/_15dp"
-                android:layout_marginRight="@dimen/_15dp"
-                android:layout_marginBottom="@dimen/_15dp">
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_15dp"-->
+<!--                android:layout_marginTop="@dimen/_15dp"-->
+<!--                android:layout_marginRight="@dimen/_15dp"-->
+<!--                android:layout_marginBottom="@dimen/_15dp">-->
 
-                <ImageView
-                    android:id="@+id/address"
-                    android:layout_width="@dimen/_25dp"
-                    android:layout_height="@dimen/_25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/address3" />
+<!--                <ImageView-->
+<!--                    android:id="@+id/address"-->
+<!--                    android:layout_width="@dimen/_25dp"-->
+<!--                    android:layout_height="@dimen/_25dp"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:src="@drawable/address3" />-->
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_25dp"
-                    android:layout_toRightOf="@+id/address"
-                    android:orientation="vertical">
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="@dimen/_25dp"-->
+<!--                    android:layout_toRightOf="@+id/address"-->
+<!--                    android:orientation="vertical">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Address"
-                        android:textColor="@color/textGrey"
-                        android:textSize="@dimen/_16sp"
-                        android:textStyle="bold" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Address"-->
+<!--                        android:textColor="@color/textGrey"-->
+<!--                        android:textSize="@dimen/_16sp"-->
+<!--                        android:textStyle="bold" />-->
 
-                    <TextView
-                        android:id="@+id/tvMemberProfileAddress"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10dp"
-                        android:text="1 rue de la giate"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/_16sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </RelativeLayout>
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvMemberProfileAddress"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="@dimen/_10dp"-->
+<!--                        android:text="1 rue de la giate"-->
+<!--                        android:textColor="@color/colorBlack"-->
+<!--                        android:textSize="@dimen/_16sp"-->
+<!--                        android:textStyle="bold" />-->
+<!--                </LinearLayout>-->
+<!--            </RelativeLayout>-->
         </LinearLayout>
     </LinearLayout>
 

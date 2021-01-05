@@ -83,6 +83,7 @@ public class Detail_Event extends AppCompatActivity {
             this.title.setText(this.eventlist.get(this.position).getTitre());
             this.type.setText(this.eventlist.get(this.position).getEventType());
             this.description.setText(this.eventlist.get(this.position).getDescription());
+            this.author.setText(this.eventlist.get(this.position).getPrenom() +" "+ this.eventlist.get(this.position).getNom() +"");
             this.summary.setText(this.eventlist.get(this.position).getResume());
             this.download.setText(this.eventlist.get(this.position).getAttachedfile());
             this.download.setOnClickListener(new View.OnClickListener() {

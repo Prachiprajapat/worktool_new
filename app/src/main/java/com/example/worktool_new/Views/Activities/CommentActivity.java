@@ -2,6 +2,7 @@ package com.example.worktool_new.Views.Activities;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -87,11 +88,16 @@ public class CommentActivity extends AppCompatActivity {
         String wallDescription = getIntent().getStringExtra("wallDescription");
         this.progressBar.setVisibility(0);
         String CommentType = getIntent().getStringExtra("commentType");
+
         this.tvWallPostName.setText(wallName);
         this.tvWallPostDate.setText(wallDateTime);
         this.tvWallTitle.setText(wallTitle);
         this.tvWallEmail.setText(wallEmail);
-        this.tvWallDescription.setText(wallDescription);
+        String text = Html.fromHtml(wallDescription).toString();
+        Log.i("descp",text);
+        this.tvWallDescription.setText(text);
+        Log.i("desc", wallDescription);
+
         if (CommentType != null) {
             if (CommentType.equals("wallpro")) {
                 this.tvWallTitle.setVisibility(8);

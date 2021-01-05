@@ -2,6 +2,7 @@ package com.example.worktool_new.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -124,7 +125,7 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
             return;
         }
         if (this.datamodelArraylist.get(position).getFiletype().equals("image")) {
-            holder.llText.setVisibility(8);
+            holder.llText.setVisibility(0);
             holder.llFile.setVisibility(8);
             holder.llImage.setVisibility(0);
             holder.llVideo.setVisibility(8);
@@ -143,8 +144,18 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
             } else {
                 holder.civWallimage.setImageResource(R.drawable.profileplaceholder);
             }
+//            if (!this.datamodelArraylist.get(position).getEmail().isEmpty()) {
+//                holder.tvEmail.setText(this.datamodelArraylist.get(position).getEmail());
+//            }
+            if (this.datamodelArraylist.get(position).getTitrePostuler() != null) {
+                //holder.tvWallTitle.setText(Html.fromHtml(this.datamodelArraylist.get(position).getTitrePostuler()));
+                Log.i("title",this.datamodelArraylist.get(position).getTitrePostuler()+"");
+            }
+            if (this.datamodelArraylist.get(position).getTexte() != null) {
+                holder.tvWallDescription.setText(Html.fromHtml(this.datamodelArraylist.get(position).getTexte()));
+            }
         } else if (this.datamodelArraylist.get(position).getFiletype().equals("video")) {
-            holder.llText.setVisibility(8);
+            holder.llText.setVisibility(0);
             holder.llFile.setVisibility(8);
             holder.llImage.setVisibility(8);
             holder.llVideo.setVisibility(0);
@@ -154,28 +165,48 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
             } else {
                 holder.civWallThumbnail.setImageResource(R.drawable.profileplaceholder);
             }
+//            if (!this.datamodelArraylist.get(position).getEmail().isEmpty()) {
+//                holder.tvEmail.setText(this.datamodelArraylist.get(position).getEmail());
+//            }
+            if (this.datamodelArraylist.get(position).getTitrePostuler() != null) {
+                //holder.tvWallTitle.setText(Html.fromHtml(this.datamodelArraylist.get(position).getTitrePostuler()));
+                Log.i("title",this.datamodelArraylist.get(position).getTitrePostuler()+"");
+            }
+            if (this.datamodelArraylist.get(position).getTexte() != null) {
+                holder.tvWallDescription.setText(Html.fromHtml(this.datamodelArraylist.get(position).getTexte()));
+            }
         } else if (this.datamodelArraylist.get(position).getFiletype().equals("document")) {
-            holder.llText.setVisibility(8);
-            holder.llFile.setVisibility(0);
+            holder.llText.setVisibility(0);
+            holder.llFile.setVisibility(8);
             holder.llImage.setVisibility(8);
             holder.llVideo.setVisibility(8);
             if (this.datamodelArraylist.get(position).getFile() != null) {
                 holder.tvWallFileName.setText(this.datamodelArraylist.get(position).getFile().toString());
+            }
+//            if (!this.datamodelArraylist.get(position).getEmail().isEmpty()) {
+//                holder.tvEmail.setText(this.datamodelArraylist.get(position).getEmail());
+//            }
+            if (this.datamodelArraylist.get(position).getTitrePostuler() != null) {
+                //holder.tvWallTitle.setText(Html.fromHtml(this.datamodelArraylist.get(position).getTitrePostuler()));
+                Log.i("title",this.datamodelArraylist.get(position).getTitrePostuler()+"");
+            }
+            if (this.datamodelArraylist.get(position).getTexte() != null) {
+                holder.tvWallDescription.setText(Html.fromHtml(this.datamodelArraylist.get(position).getTexte()));
             }
         } else {
             holder.llText.setVisibility(0);
             holder.llFile.setVisibility(8);
             holder.llImage.setVisibility(8);
             holder.llVideo.setVisibility(8);
-            if (!this.datamodelArraylist.get(position).getEmail().isEmpty()) {
-                holder.tvEmail.setText(this.datamodelArraylist.get(position).getEmail());
-            }
+//            if (!this.datamodelArraylist.get(position).getEmail().isEmpty()) {
+//                holder.tvEmail.setText(this.datamodelArraylist.get(position).getEmail());
+//            }
             if (this.datamodelArraylist.get(position).getTitrePostuler() != null) {
-                holder.tvWallTitle.setText(this.datamodelArraylist.get(position).getTitrePostuler());
+                //holder.tvWallTitle.setText(Html.fromHtml(this.datamodelArraylist.get(position).getTitrePostuler()));
                 Log.i("title",this.datamodelArraylist.get(position).getTitrePostuler()+"");
             }
             if (this.datamodelArraylist.get(position).getTexte() != null) {
-                holder.tvWallDescription.setText(this.datamodelArraylist.get(position).getTexte());
+                holder.tvWallDescription.setText(Html.fromHtml(this.datamodelArraylist.get(position).getTexte()));
             }
         }
     }
@@ -250,12 +281,12 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
         TextView tvCommentDate;
         TextView tvCommentName;
         TextView tvDateTime;
-        TextView tvEmail;
+        //TextView tvEmail;
         TextView tvName;
         TextView tvViewAllComments;
         TextView tvWallDescription;
         TextView tvWallFileName;
-        TextView tvWallTitle;
+        //TextView tvWallTitle;
         TextView tvPostTitle;
 
         public ViewHolder(View itemView) {
@@ -272,8 +303,8 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
             this.tvName = (TextView) itemView.findViewById(R.id.tvName);
             this.tvDateTime = (TextView) itemView.findViewById(R.id.tvDateTime);
             this.tvViewAllComments = (TextView) itemView.findViewById(R.id.tvViewAllComments);
-            this.tvEmail = (TextView) itemView.findViewById(R.id.tvEmail);
-            this.tvWallTitle = (TextView) itemView.findViewById(R.id.tvWallTitle);
+            //this.tvEmail = (TextView) itemView.findViewById(R.id.tvEmail);
+            //this.tvWallTitle = (TextView) itemView.findViewById(R.id.tvWallTitle);
             this.tvWallDescription = (TextView) itemView.findViewById(R.id.tvWallDescription);
             this.tvWallFileName = (TextView) itemView.findViewById(R.id.tvWallFileName);
             this.civWallimage = (CircleImageView) itemView.findViewById(R.id.civWallimage);

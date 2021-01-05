@@ -51,7 +51,7 @@ public class Event_List extends RecyclerView.Adapter<Event_List.ViewHolder> {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Event_List.this.context, Detail_ListEvent.class);
-                intent.putExtra("activity", "detail");
+                intent.putExtra("activity", "eventList");
                 intent.putExtra("position", position);
                 intent.putExtra("eventlist", Event_List.this.datamodelArraylist);
                 Event_List.this.context.startActivity(intent);
@@ -60,16 +60,16 @@ public class Event_List extends RecyclerView.Adapter<Event_List.ViewHolder> {
         holder.tvListEventName.setText(this.datamodelArraylist.get(position).getPrenom() + " " + this.datamodelArraylist.get(position).getNom());
         holder.tvListEventTitle.setText(this.datamodelArraylist.get(position).getTitre());
         holder.tvListEventType.setText("Type: " + this.datamodelArraylist.get(position).getEventType());
-        String ListEventImage = AppConstants.IMAGEURL + this.datamodelArraylist.get(position).getFile();
-        if (this.datamodelArraylist.get(position).getFile() != null) {
+        String ListEventImage = AppConstants.IMAGEURL + this.datamodelArraylist.get(position).getEventphotofile();
+
+        if (this.datamodelArraylist.get(position).getEventphotofile() != null) {
             Picasso.get().load(ListEventImage).placeholder((int) R.drawable.profileplaceholder).error((int) R.drawable.profileplaceholder).into(holder.ivListEventImage);
         } else {
             holder.ivListEventImage.setImageResource(R.drawable.profileplaceholder);
         }
         holder.registerTV.setText("Register");
         String type = Event_List.this.datamodelArraylist.get(position).getStatus(); // get from api of list events
-        Log.i("type",type);
-        Log.i("type",datamodelArraylist.get(position).getIdEvent());
+
         if(type.equals("Subscribed")){
             holder.registerTV.setEnabled(false);
             holder.registerTV.setText("Subscribed");

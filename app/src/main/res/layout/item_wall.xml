@@ -98,10 +98,20 @@
                         android:layout_marginLeft="@dimen/_15dp"
                         android:ellipsize="end"
                         android:maxLines="4"
-                        android:text="heyy there"
+                        android:text="@string/heyy_there"
                         android:textColor="@color/textGrey"
                         android:textSize="@dimen/_15sp" />
                 </LinearLayout>
+                <TextView
+                    android:id="@+id/readMore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_below="@+id/llText"
+                    android:layout_marginLeft="@dimen/_15dp"
+                    android:textSize="@dimen/_15sp"
+                    android:text="read more...!"
+                    android:textColor="#0000ff"/>
 
                 <LinearLayout
                     android:id="@+id/llFile"
@@ -168,6 +178,7 @@
                         android:layout_width="@dimen/_80dp"
                         android:layout_height="@dimen/_80dp"
                         android:layout_centerInParent="true"
+                        android:layout_marginTop="@dimen/_15dp"
                         android:layout_marginBottom="@dimen/_15dp"
                         android:src="@drawable/placeholder"
                         app:civ_border_color="@color/colorWhite"

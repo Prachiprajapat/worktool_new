@@ -20,6 +20,7 @@ import com.example.worktool_new.Util.PreviewActivity;
 import com.example.worktool_new.Util.SharedPreference.App;
 import com.example.worktool_new.Util.SharedPreference.AppConstants;
 import com.example.worktool_new.Views.Activities.CommentActivity;
+import com.example.worktool_new.Views.Activities.WallDescriptionActivity;
 import com.squareup.picasso.Picasso;
 import de.hdodenhof.circleimageview.CircleImageView;
 import java.util.ArrayList;
@@ -124,12 +125,15 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
         if (this.datamodelArraylist.get(position).getFiletype() == null) {
             return;
         }
+        if(this.datamodelArraylist.get(position).getTexte().trim().length()>40){
+            holder.tvReadMore.setVisibility(View.VISIBLE);
+        }
         if (this.datamodelArraylist.get(position).getFiletype().equals("image")) {
             holder.llText.setVisibility(0);
             holder.llFile.setVisibility(8);
             holder.llImage.setVisibility(0);
             holder.llVideo.setVisibility(8);
-            holder.llImage.setOnClickListener(new View.OnClickListener() {
+            holder.civWallimage.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     if (((WallModel.Datum) Adapter_wall.this.datamodelArraylist.get(position)).getFile() != null) {
                         Intent intent = new Intent(Adapter_wall.this.context, PreviewActivity.class);
@@ -152,7 +156,7 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
                 Log.i("title",this.datamodelArraylist.get(position).getTitrePostuler()+"");
             }
             if (this.datamodelArraylist.get(position).getTexte() != null) {
-                holder.tvWallDescription.setText(Html.fromHtml(this.datamodelArraylist.get(position).getTexte()));
+                holder.tvWallDescription.setText(Html.fromHtml(this.datamodelArraylist.get(position).getTexte().trim()));
             }
         } else if (this.datamodelArraylist.get(position).getFiletype().equals("video")) {
             holder.llText.setVisibility(0);
@@ -209,6 +213,16 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
                 holder.tvWallDescription.setText(Html.fromHtml(this.datamodelArraylist.get(position).getTexte()));
             }
         }
+        holder.tvReadMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, WallDescriptionActivity.class);
+                intent.putExtra("wallDescription", ((WallModel.Datum) Adapter_wall.this.datamodelArraylist.get(position)).getTexte());
+                Adapter_wall.this.context.startActivity(intent);
+                Log.i("length",Adapter_wall.this.datamodelArraylist.get(position).getTexte().trim().length()+"");
+            }
+        });
+
     }
 
     public Filter getFilter() {
@@ -283,6 +297,7 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
         TextView tvDateTime;
         //TextView tvEmail;
         TextView tvName;
+        TextView tvReadMore;
         TextView tvViewAllComments;
         TextView tvWallDescription;
         TextView tvWallFileName;
@@ -301,6 +316,7 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
             this.rlWallRecentComment = (RelativeLayout) itemView.findViewById(R.id.rlWallRecentComment);
             this.ivWallProfilePost = (CircleImageView) itemView.findViewById(R.id.ivWallProfilePost);
             this.tvName = (TextView) itemView.findViewById(R.id.tvName);
+            this.tvReadMore = (TextView) itemView.findViewById(R.id.readMore);
             this.tvDateTime = (TextView) itemView.findViewById(R.id.tvDateTime);
             this.tvViewAllComments = (TextView) itemView.findViewById(R.id.tvViewAllComments);
             //this.tvEmail = (TextView) itemView.findViewById(R.id.tvEmail);

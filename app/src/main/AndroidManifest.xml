@@ -40,6 +40,9 @@
             android:name=".Views.Activities.Detail_Event"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".Views.Activities.WallDescriptionActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Views.Activities.Detail_ListEvent"
             android:screenOrientation="portrait" />
         <activity

@@ -53,23 +53,30 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
     public void onBindViewHolder(ViewHolder holder, final int position) {
         if (this.datamodelArraylist.get(position).getComment() == null || this.datamodelArraylist.get(position).getComment().isEmpty()) {
             holder.rlWallRecentComment.setVisibility(8);
-        } else {
+        }
+        else {
             holder.rlWallRecentComment.setVisibility(0);
         }
+
         if (this.datamodelArraylist.get(position).getCommentimage() == null || this.datamodelArraylist.get(position).getCommentimage().isEmpty()) {
             holder.civComment.setImageResource(R.drawable.placeholder);
-        } else {
+        }
+        else {
             Picasso.get().load(AppConstants.IMAGEURL + this.datamodelArraylist.get(position).getCommentimage()).placeholder((int) R.drawable.placeholder).error((int) R.drawable.placeholder).into((ImageView) holder.civComment);
         }
+
         if (this.datamodelArraylist.get(position).getCommentprenom() != null && this.datamodelArraylist.get(position).getCommentnom() != null && !this.datamodelArraylist.get(position).getCommentprenom().isEmpty() && !this.datamodelArraylist.get(position).getCommentnom().isEmpty()) {
             holder.tvCommentName.setText(this.datamodelArraylist.get(position).getCommentprenom() + this.datamodelArraylist.get(position).getCommentnom());
         }
+
         if (this.datamodelArraylist.get(position).getCommentdate() != null && !this.datamodelArraylist.get(position).getCommentdate().isEmpty()) {
             holder.tvCommentDate.setText(this.datamodelArraylist.get(position).getCommentdate());
         }
+
         if (this.datamodelArraylist.get(position).getComment() != null && !this.datamodelArraylist.get(position).getComment().isEmpty()) {
             holder.tvComment.setText(HtmlCompat.fromHtml(this.datamodelArraylist.get(position).getComment(), 63));
         }
+
         holder.llRemovePost.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (((WallModel.Datum) Adapter_wall.this.datamodelArraylist.get(position)).getId() != null && !((WallModel.Datum) Adapter_wall.this.datamodelArraylist.get(position)).getId().isEmpty()) {
@@ -77,6 +84,7 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
                 }
             }
         });
+
         holder.tvViewAllComments.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(Adapter_wall.this.context, CommentActivity.class);
@@ -91,6 +99,7 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
                 Adapter_wall.this.context.startActivity(intent);
             }
         });
+
         holder.edit_cv4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(Adapter_wall.this.context, CommentActivity.class);
@@ -105,29 +114,41 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
                 Adapter_wall.this.context.startActivity(intent);
             }
         });
+
         if (App.getAppPreference().getString("type").equals("counselor")) {
             holder.linApply.setVisibility(8);
-        } else {
+        }
+        else {
             holder.linApply.setVisibility(0);
         }
+
         if (!(this.datamodelArraylist.get(position).getNom() == null && this.datamodelArraylist.get(position).getPrenom() == null)) {
             holder.tvName.setText(this.datamodelArraylist.get(position).getCivilite() + " " + this.datamodelArraylist.get(position).getPrenom() + " " + this.datamodelArraylist.get(position).getNom());
         }
+
         if (!this.datamodelArraylist.get(position).getDateheure().isEmpty()) {
             holder.tvDateTime.setText(this.datamodelArraylist.get(position).getDateheure());
         }
+
         String ProfileImage = AppConstants.IMAGEURL + this.datamodelArraylist.get(position).getImage();
         if (this.datamodelArraylist.get(position).getImage() != null) {
             Picasso.get().load(ProfileImage).placeholder(R.drawable.profileplaceholder).error((int) R.drawable.profileplaceholder).into((CircleImageView) holder.ivWallProfilePost);
-        } else {
+        }
+        else {
             holder.ivWallProfilePost.setImageResource(R.drawable.profileplaceholder);
         }
+
         if (this.datamodelArraylist.get(position).getFiletype() == null) {
             return;
         }
-        if(this.datamodelArraylist.get(position).getTexte().trim().length()>40){
+
+        String zxc = Html.fromHtml(datamodelArraylist.get(position).getTexte()).toString();
+        if(zxc.length()>40){
             holder.tvReadMore.setVisibility(View.VISIBLE);
         }
+
+        Log.i("wallfiletype", "" + datamodelArraylist.get(position).getDateheure() +
+                " " + datamodelArraylist.get(position).getFiletype());
         if (this.datamodelArraylist.get(position).getFiletype().equals("image")) {
             holder.llText.setVisibility(0);
             holder.llFile.setVisibility(8);
@@ -158,7 +179,8 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
             if (this.datamodelArraylist.get(position).getTexte() != null) {
                 holder.tvWallDescription.setText(Html.fromHtml(this.datamodelArraylist.get(position).getTexte().trim()));
             }
-        } else if (this.datamodelArraylist.get(position).getFiletype().equals("video")) {
+        }
+        else if (this.datamodelArraylist.get(position).getFiletype().equals("video")) {
             holder.llText.setVisibility(0);
             holder.llFile.setVisibility(8);
             holder.llImage.setVisibility(8);
@@ -179,7 +201,8 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
             if (this.datamodelArraylist.get(position).getTexte() != null) {
                 holder.tvWallDescription.setText(Html.fromHtml(this.datamodelArraylist.get(position).getTexte()));
             }
-        } else if (this.datamodelArraylist.get(position).getFiletype().equals("document")) {
+        }
+        else if (this.datamodelArraylist.get(position).getFiletype().equals("document")) {
             holder.llText.setVisibility(0);
             holder.llFile.setVisibility(8);
             holder.llImage.setVisibility(8);
@@ -197,7 +220,8 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
             if (this.datamodelArraylist.get(position).getTexte() != null) {
                 holder.tvWallDescription.setText(Html.fromHtml(this.datamodelArraylist.get(position).getTexte()));
             }
-        } else {
+        }
+        else {
             holder.llText.setVisibility(0);
             holder.llFile.setVisibility(8);
             holder.llImage.setVisibility(8);
@@ -213,6 +237,7 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
                 holder.tvWallDescription.setText(Html.fromHtml(this.datamodelArraylist.get(position).getTexte()));
             }
         }
+
         holder.tvReadMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

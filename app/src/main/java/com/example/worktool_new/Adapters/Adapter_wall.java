@@ -125,7 +125,7 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
         if (this.datamodelArraylist.get(position).getFiletype() == null) {
             return;
         }
-        if(Html.fromHtml(this.datamodelArraylist.get(position).getTexte()).length()>40){
+        if(this.datamodelArraylist.get(position).getTexte().trim().length()>40){
             holder.tvReadMore.setVisibility(View.VISIBLE);
         }
         if (this.datamodelArraylist.get(position).getFiletype().equals("image")) {
@@ -133,7 +133,6 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
             holder.llFile.setVisibility(8);
             holder.llImage.setVisibility(0);
             holder.llVideo.setVisibility(8);
-            Log.i("docImage",this.datamodelArraylist.get(position).getFile().toString());
             holder.civWallimage.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     if (((WallModel.Datum) Adapter_wall.this.datamodelArraylist.get(position)).getFile() != null) {
@@ -185,16 +184,9 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
             holder.llFile.setVisibility(8);
             holder.llImage.setVisibility(8);
             holder.llVideo.setVisibility(8);
-            //Log.i("docImage",this.datamodelArraylist.get(position).getFile().toString());
             if (this.datamodelArraylist.get(position).getFile() != null) {
                 holder.tvWallFileName.setText(this.datamodelArraylist.get(position).getFile().toString());
             }
-//            String VideoThumbNail = AppConstants.IMAGEURL + this.datamodelArraylist.get(position).getImage();
-//            Log.i("imageurl",AppConstants.IMAGEURL + this.datamodelArraylist.get(position).getImage());
-//            if (this.datamodelArraylist.get(position).getImage() != null) {
-//                holder.llImage.setVisibility(8);
-//                Picasso.get().load(VideoThumbNail).placeholder((int) R.drawable.profileplaceholder).error((int) R.drawable.profileplaceholder).resize(80, 80).into((CircleImageView) holder.civWallimage);
-//            }
 //            if (!this.datamodelArraylist.get(position).getEmail().isEmpty()) {
 //                holder.tvEmail.setText(this.datamodelArraylist.get(position).getEmail());
 //            }

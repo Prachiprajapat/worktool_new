@@ -35,12 +35,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme3"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Views.Activities.ForwardMailActivity"></activity>
+        <activity android:name=".Views.Activities.WallDescriptionActivity"></activity>
+        <activity android:name=".Views.Activities.ForwardMailActivity" />
         <activity
             android:name=".Views.Activities.Detail_Event"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Views.Activities.WallDescriptionActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Views.Activities.Detail_ListEvent"

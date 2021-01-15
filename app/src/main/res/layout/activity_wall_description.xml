@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textSize="@dimen/_23sp"
+        android:linksClickable="true"
         android:layout_margin="@dimen/_20dp"/>
     </ScrollView>
 

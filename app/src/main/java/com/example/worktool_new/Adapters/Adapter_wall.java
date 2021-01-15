@@ -3,6 +3,7 @@ package com.example.worktool_new.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -128,6 +129,8 @@ public class Adapter_wall extends RecyclerView.Adapter<Adapter_wall.ViewHolder> 
         if(this.datamodelArraylist.get(position).getTexte().trim().length()>40){
             holder.tvReadMore.setVisibility(View.VISIBLE);
         }
+        holder.llText.setClickable(true);
+
         if (this.datamodelArraylist.get(position).getFiletype().equals("image")) {
             holder.llText.setVisibility(0);
             holder.llFile.setVisibility(8);

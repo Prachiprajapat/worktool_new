@@ -98,6 +98,8 @@
                         android:layout_marginLeft="@dimen/_15dp"
                         android:ellipsize="end"
                         android:maxLines="4"
+                        android:autoLink="web"
+                        android:linksClickable="true"
                         android:text="@string/heyy_there"
                         android:textColor="@color/textGrey"
                         android:textSize="@dimen/_15sp" />
